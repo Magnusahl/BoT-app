@@ -30,14 +30,18 @@ class PlayerEntryViewController: UIViewController {
     
     
     @IBAction func addBotWater(_ sender: UIButton) {
-        amount += 10
-        amountLabel.text = String(amount)
+        playerEntry?.amount += 10
+            if let amount = playerEntry?.amount {
+                amountLabel.text = String(amount)
+        }
     }
     
     
     @IBAction func addRedCard(_ sender: UIButton) {
-        amount += 50
-        amountLabel.text = String(amount)
+        playerEntry?.amount += 50
+            if let amount = playerEntry?.amount {
+                amountLabel.text = String(amount)
+        }
     }
     
     
