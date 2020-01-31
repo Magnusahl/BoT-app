@@ -14,6 +14,7 @@ class PlayerListTableViewController: UITableViewController {
     let cellIdentity = "PlayerEntryCell"
     let playerEntrySegueId = "showPlayerEntry"
     let player = Player()
+    let newEntrySegueId = "createPlayerEntry"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,10 @@ class PlayerListTableViewController: UITableViewController {
         //self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    func refresh() {
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -114,6 +119,11 @@ class PlayerListTableViewController: UITableViewController {
             guard let entry = player.entry(index: indexPath.row) else {return}
 
             destinationVC.playerEntry = entry
+        } else if segue.identifier == newEntrySegueId {
+            guard let destinationVC = segue.destination as? NewEntryViewController else {return}
+            
+            destinationVC.player = player
+            destinationVC.playerVC = self
         }
     }
 }

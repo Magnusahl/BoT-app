@@ -22,6 +22,15 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SRh-em-Vvp" id="3eC-6N-LjI">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeM-6r-3nw">
+                                            <rect key="frame" x="305" y="5" width="89" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="lFH-RN-kYq" kind="presentation" identifier="showPlayerEntry" id="YQG-PL-G0b"/>
@@ -33,26 +42,52 @@
                             <outlet property="delegate" destination="O9A-Gj-A1r" id="FAD-LE-ahj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Player List" id="a7z-Qc-vhP"/>
+                    <navigationItem key="navigationItem" title="Player List" id="a7z-Qc-vhP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5sx-FY-3tb">
+                            <connections>
+                                <action selector="addEntry:" destination="r8a-uP-ghE" id="pma-Ep-vMW"/>
+                                <segue destination="oOV-MA-c3B" kind="show" identifier="createPlayerEntry" id="QgG-B3-y3w"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJJ-Hr-4ad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="r8a-uP-ghE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1270" y="122"/>
+            <point key="canvasLocation" x="1269.5652173913045" y="121.875"/>
         </scene>
-        <!--View Controller-->
+        <!--New Entry View Controller-->
         <scene sceneID="2j3-DT-SOu">
             <objects>
-                <viewController id="oOV-MA-c3B" sceneMemberID="viewController">
+                <viewController id="oOV-MA-c3B" customClass="NewEntryViewController" customModule="BotApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DeS-SR-lLZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f2g-LC-ftg">
+                                <rect key="frame" x="114" y="172" width="186" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="XQM-0e-vcK"/>
                     </view>
+                    <navigationItem key="navigationItem" id="x78-po-cOI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="GMd-x3-kBZ">
+                            <connections>
+                                <action selector="save:" destination="oOV-MA-c3B" id="9c6-lb-08Z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addName" destination="f2g-LC-ftg" id="MMa-mW-uWa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ers-Es-SR1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2149" y="531"/>
+            <point key="canvasLocation" x="2147.826086956522" y="530.35714285714289"/>
         </scene>
         <!--Player Entry View Controller-->
         <scene sceneID="dw8-yM-gtO">
