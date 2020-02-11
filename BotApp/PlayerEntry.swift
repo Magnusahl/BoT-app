@@ -7,17 +7,27 @@
 //
 
 import Foundation
+import Firebase
 
-struct PlayerEntry {
+class PlayerEntry : Codable{
     
     var name: String
     var amount: Int
-    //var date: Int
-    
-    init(name: String, amount: Int) {
+    var id: String
+    var botCount: Int
+
+    init(name: String, amount: Int, id: String, botCount: Int) {
         self.name = name
         self.amount = amount
-        //self.date = date
+        self.id = ""
+        self.botCount = botCount
     }
     
+    init(snapshot: QueryDocumentSnapshot) {
+        let value = snapshot.data() as [String : Any]
+        name = value["name"] as! String
+        amount = value["amount"] as! Int
+        id = snapshot.documentID
+        botCount = value["botCount"] as! Int
+    }
 }

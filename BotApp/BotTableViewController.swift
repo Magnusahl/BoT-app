@@ -1,8 +1,8 @@
 //
-//  PlayerListTableViewController.swift
+//  BotTableViewController.swift
 //  BotApp
 //
-//  Created by Magnus Ahlqvist on 2020-01-29.
+//  Created by Magnus Ahlqvist on 2020-02-04.
 //  Copyright © 2020 Magnus Ahlqvist. All rights reserved.
 //
 
@@ -10,44 +10,41 @@ import UIKit
 import Firebase
 import FirebaseFirestoreSwift
 
-class PlayerListTableViewController: UITableViewController {
-    
-    @IBOutlet weak var addPlayerButton: UIBarButtonItem!
-    
-    let cellIdentity = "PlayerEntryCell"
-    let playerEntrySegueId = "showPlayerEntry"
-    let players = Players()
-    let newEntrySegueId = "createPlayerEntry"
+class BotTableViewController: UITableViewController {
+
+    let cellIdentity = "BotEntryCell"
+    let bot = Bot()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        readFromDB()
+//        bot.add(entry: BotEntry(botName: "Glömt hårsnodd", botAmount: 10))
+//        bot.add(entry: BotEntry(botName: "Inte tackat domare/motståndare", botAmount: 20))
+        
+        readFromBotDB()
     }
     
-    func readFromDB() {
-        let playersRef = Firestore.firestore().collection("players")
+    func readFromBotDB() {
+        let botRef = Firestore.firestore().collection("bot")
         
-        playersRef.addSnapshotListener() {
+        botRef.addSnapshotListener() {
             (snapshot, error) in
             guard let documents = snapshot?.documents else {return}
             
-            self.players.removeAll()
+            self.bot.removeAll()
             for document in documents {
                 
-                let player = PlayerEntry(snapshot: document)
-                self.players.add(entry: player)
+                let bot = BotEntry(snapshot: document)
+                self.bot.add(entry: bot)
             }
-            self.refresh()
+            self.botRefresh()
         }
     }
-
-    func refresh() {
+    
+    func botRefresh() {
         tableView.reloadData()
     }
-    
-    
-    
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,21 +54,30 @@ class PlayerListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return players.count
+        return bot.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath)
 
-        if let entry = players.entry(index: indexPath.row) {
-            cell.textLabel?.text = entry.name
+        if let entry = bot.entry(index: indexPath.row) {
+            cell.textLabel?.text = entry.botName
         }
 
         return cell
     }
-
     
+
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    */
+
+    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -79,30 +85,33 @@ class PlayerListTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
+        }    
     }
-    
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
+
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-       
-        if segue.identifier == playerEntrySegueId {
-
-
-            guard let destinationVC = segue.destination as? PlayerEntryViewController else {return}
-            guard let cell = sender as? UITableViewCell else {return}
-            guard let indexPath = tableView.indexPath(for: cell) else {return}
-            guard let entry = players.entry(index: indexPath.row) else {return}
-
-            destinationVC.playerEntry = entry
-        } else if segue.identifier == newEntrySegueId {
-            guard let destinationVC = segue.destination as? NewEntryViewController else {return}
-            
-//            destinationVC.players = players
-//            destinationVC.playerVC = self
-        }
     }
+    */
+
 }

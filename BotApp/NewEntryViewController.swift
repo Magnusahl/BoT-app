@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseFirestoreSwift
+import Firebase
 
 class NewEntryViewController: UIViewController {
 
@@ -15,8 +17,8 @@ class NewEntryViewController: UIViewController {
     
     
     var playerVC: PlayerListTableViewController?
-    var player: Player?
-    var entry = PlayerEntry(name: "", amount: 0)
+    var players: Players?
+    var entry = PlayerEntry(name: "", amount: 0, id: "", botCount: 0)
     
     
     
@@ -29,14 +31,24 @@ class NewEntryViewController: UIViewController {
     
     
     @IBAction func save(_ sender: UIBarButtonItem) {
-        entry.name = addName.text!
 
-        player?.add(entry: entry)
-        playerVC?.refresh()
+        entry.name = addName.text!
+        
+        let playersDb = Firestore.firestore()
+                
+        do {
+            try playersDb.collection("players").addDocument(from: entry)
+        } catch {}
+                
+        
+        
+//        players?.add(entry: entry)
+//        playerVC?.refresh()
         _ = navigationController?.popToRootViewController(animated: true)
     }
     
 
+    
     
     /*
     // MARK: - Navigation
