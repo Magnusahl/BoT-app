@@ -17,9 +17,11 @@ class LabelAmountTableViewCell: UITableViewCell {
 //    let bot = Bot()
 //    var botAmounts = Firestore.firestore().collection("players").child("amount")
     var players = Players()
+    var playerEntry: PlayerEntry?
     
     
-    @IBOutlet weak var labelAmount: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
+    
     
 //    func numberOfSections(in tableView: UITableView) -> Int {
 //        // #warning Incomplete implementation, return the number of sections
@@ -30,15 +32,15 @@ class LabelAmountTableViewCell: UITableViewCell {
 //        return bot.count
 //    }
 //
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath) as! LabelAmountTableViewCell
-        
-        if let entry = players.entry(index: indexPath.row) {
-            cell.textLabel?.text = String(entry.amount)
-        }
-        
-        return cell
-    }
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath) as! LabelAmountTableViewCell
+//
+////        if let entry = players.entry(index: indexPath.row) {
+//            cell.amountLabel.text = String(playerEntry!.amount)
+//
+//
+//        return cell
+//    }
     
 //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LabelAmountTableViewCell

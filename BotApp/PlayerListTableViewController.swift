@@ -19,6 +19,8 @@ class PlayerListTableViewController: UITableViewController {
     let players = Players()
     let newEntrySegueId = "createPlayerEntry"
     
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,15 +64,20 @@ class PlayerListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath as IndexPath) as! LabelAmountTableViewCell
 
         if let entry = players.entry(index: indexPath.row) {
             cell.textLabel?.text = entry.name
+        }
+        
+        if let entry = players.entry(index: indexPath.row) {
+        cell.amountLabel.text = String(entry.amount)
         }
 
         return cell
     }
 
+    
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

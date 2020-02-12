@@ -10,6 +10,7 @@
 		5364D73F7CDC288BD7B9073A /* Pods_BotAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95464D19D03D8DE9C1562C6D /* Pods_BotAppTests.framework */; };
 		69C55FD349751D5C07D9995A /* Pods_BotApp_BotAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274BD3AAD4EC362196AE4CFC /* Pods_BotApp_BotAppUITests.framework */; };
 		DCE9F3CF68E11FD36F762062 /* Pods_BotApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C8AD3BC9AF0F4738D21463 /* Pods_BotApp.framework */; };
+		F777B5ED23F3DF3F00D210B4 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777B5EC23F3DF3F00D210B4 /* StartViewController.swift */; };
 		F794D80623E42D4800B52DB9 /* NewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D80523E42D4800B52DB9 /* NewEntryViewController.swift */; };
 		F794D83323E99D9800B52DB9 /* BotTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D83223E99D9800B52DB9 /* BotTableViewController.swift */; };
 		F794D83523E99ECE00B52DB9 /* BotEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D83423E99ECE00B52DB9 /* BotEntry.swift */; };
@@ -58,6 +59,7 @@
 		9A1E0DF50084888BB53F7B95 /* Pods-BotApp-BotAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotApp-BotAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-BotApp-BotAppUITests/Pods-BotApp-BotAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C2C8AD3BC9AF0F4738D21463 /* Pods_BotApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BotApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70226BE46A4E75EBE6DE520 /* Pods-BotApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotApp.release.xcconfig"; path = "Target Support Files/Pods-BotApp/Pods-BotApp.release.xcconfig"; sourceTree = "<group>"; };
+		F777B5EC23F3DF3F00D210B4 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		F794D80523E42D4800B52DB9 /* NewEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryViewController.swift; sourceTree = "<group>"; };
 		F794D83223E99D9800B52DB9 /* BotTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotTableViewController.swift; sourceTree = "<group>"; };
 		F794D83423E99ECE00B52DB9 /* BotEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotEntry.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				F7C8F4A623E1B199009E7905 /* PlayerEntryViewController.swift */,
 				F794D80523E42D4800B52DB9 /* NewEntryViewController.swift */,
 				F794D83823E9A41000B52DB9 /* NewBotEntryViewController.swift */,
+				F777B5EC23F3DF3F00D210B4 /* StartViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F794D88523EEEFED00B52DB9 /* LabelAmountTableViewCell.swift in Sources */,
+				F777B5ED23F3DF3F00D210B4 /* StartViewController.swift in Sources */,
 				F794D83523E99ECE00B52DB9 /* BotEntry.swift in Sources */,
 				F7C8F4A323E1AC15009E7905 /* PlayerEntry.swift in Sources */,
 				F7C8F4A523E1B109009E7905 /* PlayerListTableViewController.swift in Sources */,
