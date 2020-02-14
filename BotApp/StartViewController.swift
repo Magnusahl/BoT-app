@@ -7,36 +7,123 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestoreSwift
 
 class StartViewController: UIViewController {
 
+    var auth: Auth!
     
+    let segueID = "segueLogIn"
+    
+    var teamName = TeamNameEntry(teamName: "", id: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        auth = Auth.auth()
+        
+        if let user = self.auth.currentUser {
+            print(user.email)
+            do {
+                try auth.signOut()
+            } catch {
+                print("Error signing out")
+            }
+        }
+        
     }
     
     
-    @IBAction func startButton(_ sender: UIButton) {
+    @IBAction func signUp(_ sender: UIButton) {
         
-        let alert = UIAlertController(title: "Start", message: "Type in a team name", preferredStyle: .alert)
+        let alertController = UIAlertController(title: nil, message: "Signup", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Email"
+            textField.keyboardType = .emailAddress
+        }
         
-        alert.addTextField(configurationHandler: { textField in textField.placeholder = "Type a team name:" })
+        alertController.addTextField { (textField) in
+        textField.placeholder = "Password"
+        textField.isSecureTextEntry = true
+        }
         
-        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
-            
-            if let name = alert.textFields?.first?.text {
+        alertController.addTextField { (textField) in
+        textField.placeholder = "Password Confirmation"
+        textField.isSecureTextEntry = true
+        }
+        
+        let signupAction = UIAlertAction(title: "Sign Up", style: .default) { (_) in
+            let emailField = alertController.textFields![0]
+            let passwordField = alertController.textFields![1]
+            let conformPasswordField = alertController.textFields![2]
+
+            //Perform validation or whatever you do want with the text of textfield
+
+            //SigunUp With Firebase
+            Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { result, error in
+                if let user = self.auth.currentUser {
+                    self.performSegue(withIdentifier: self.segueID, sender: self)
+                } else {
+                    print("Error: \(error)")
+                }
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(signupAction)
+        alertController.addAction(cancelAction)
+
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+    }
+    
+    
+    @IBAction func logIn(_ sender: UIButton) {
+        
+        let alertController = UIAlertController(title: nil, message: "Log In", preferredStyle: .alert)
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Email"
+            textField.keyboardType = .emailAddress
+        }
+
+        alertController.addTextField { (textField) in
+        textField.placeholder = "Password"
+        textField.isSecureTextEntry = true
+        }
+        
+        
+        let loginAction = UIAlertAction(title: "Log in", style: .default) { (_) in
+            let emailField = alertController.textFields![0]
+            let passwordField = alertController.textFields![1]
+
+            //Perform validation or whatever you do want with the text of textfield
+
+            //Login With Firebase
+            Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
+                if let user = self.auth.currentUser {
+                    self.performSegue(withIdentifier: self.segueID, sender: self)
+                } else {
+                    print("Error: \(error)")
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alertController.addAction(loginAction)
+                alertController.addAction(cancelAction)
+
+                DispatchQueue.main.async {
+                    self.present(alertController, animated: true, completion: nil)
                 
             }
-        }))
-        
-        self.present(alert, animated: true)
-        
     }
+        
+        
+    
     
     /*
     // MARK: - Navigation
@@ -47,5 +134,4 @@ class StartViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

@@ -31,6 +31,5 @@ class Players {
     
     func removeAll() {
         entries.removeAll()
-    }
-    
+    }    
 }

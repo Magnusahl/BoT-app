@@ -12,14 +12,10 @@ import FirebaseFirestoreSwift
 
 class PlayerListTableViewController: UITableViewController {
     
-    @IBOutlet weak var addPlayerButton: UIBarButtonItem!
-    
     let cellIdentity = "PlayerEntryCell"
     let playerEntrySegueId = "showPlayerEntry"
     let players = Players()
     let newEntrySegueId = "createPlayerEntry"
-    
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +39,8 @@ class PlayerListTableViewController: UITableViewController {
             self.refresh()
         }
     }
-
+    
+    //Refresh tableview with new entry
     func refresh() {
         tableView.reloadData()
     }
@@ -76,18 +73,45 @@ class PlayerListTableViewController: UITableViewController {
 
         return cell
     }
+    
+    
 
+    //Save player name in a UIAlert action *******
+    @IBAction func addPlayer(_ sender: UIBarButtonItem) {
     
-    
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
+        let entry = PlayerEntry(name: "", amount: 0, id: "", botCount: 0)
+        let alert = UIAlertController(title: "Add player", message: "Type in a player name", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
+        alert.addTextField(configurationHandler: { textField in textField.placeholder = "Type a player name:" })
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
+            
+            if (alert.textFields?.first?.text) != nil {
+                let playersDb = Firestore.firestore()
+                        
+                do {
+                    try playersDb.collection("players").addDocument(from: entry)
+                } catch {}
+                }
+        }))
+        self.present(alert, animated: true)
     }
+    
+    // Delete players*****
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            let state = name[indexPath.row]
+//            players.remove(at: indexPath.row)
+//
+//            // Delete the row from the data source
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//
+//            Firestore.firestore().collection().child("players").child(name[indexPath.row]).removeValue()
+//            name.remove(at: indexPath.row)
+//        } else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
+//    }
     
     // MARK: - Navigation
 
@@ -97,7 +121,6 @@ class PlayerListTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
        
         if segue.identifier == playerEntrySegueId {
-
 
             guard let destinationVC = segue.destination as? PlayerEntryViewController else {return}
             guard let cell = sender as? UITableViewCell else {return}

@@ -20,8 +20,6 @@ class NewEntryViewController: UIViewController {
     var players: Players?
     var entry = PlayerEntry(name: "", amount: 0, id: "", botCount: 0)
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,13 +37,10 @@ class NewEntryViewController: UIViewController {
         do {
             try playersDb.collection("players").addDocument(from: entry)
         } catch {}
-                
-        
-        
-//        players?.add(entry: entry)
-//        playerVC?.refresh()
         _ = navigationController?.popToRootViewController(animated: true)
     }
+    
+    
     
 
     

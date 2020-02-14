@@ -15,6 +15,7 @@ class NewBotEntryViewController: UIViewController {
 
     
     @IBOutlet weak var addBot: UITextField!
+    @IBOutlet weak var addAmountBot: UITextField!
     
     var botVC: BotTableViewController?
     var bot: Bot?
@@ -29,6 +30,7 @@ class NewBotEntryViewController: UIViewController {
     
     @IBAction func saveBot(_ sender: UIBarButtonItem) {
         botentry.botName = addBot.text!
+        addAmountBot.text = String(botentry.botAmount)
         
         let playersDb = Firestore.firestore()
                 
@@ -36,11 +38,7 @@ class NewBotEntryViewController: UIViewController {
             try playersDb.collection("bot").addDocument(from: botentry)
         } catch {}
         
-        
-//        bot?.add(entry: entry)
-//        botVC?.botRefresh()
         _ = navigationController?.popViewController(animated: true)
-//        _ = navigationController?.popToRootViewController(animated: true)
     }
 
 }

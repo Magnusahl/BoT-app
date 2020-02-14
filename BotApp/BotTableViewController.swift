@@ -14,12 +14,12 @@ class BotTableViewController: UITableViewController {
 
     let cellIdentity = "BotEntryCell"
     let bot = Bot()
+    var botentry = BotEntry(botName: "", botAmount: 0, id: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        bot.add(entry: BotEntry(botName: "Glömt hårsnodd", botAmount: 10))
-//        bot.add(entry: BotEntry(botName: "Inte tackat domare/motståndare", botAmount: 20))
+
         
         readFromBotDB()
     }
@@ -40,7 +40,7 @@ class BotTableViewController: UITableViewController {
             self.botRefresh()
         }
     }
-    
+    //Refresh tableview with new entry
     func botRefresh() {
         tableView.reloadData()
     }
@@ -59,16 +59,38 @@ class BotTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath as IndexPath) as! botAmountTableViewCell
 
         if let entry = bot.entry(index: indexPath.row) {
             cell.textLabel?.text = entry.botName
         }
-
+        if bot.entry(index: indexPath.row) != nil {
+        cell.botAmount.text = String(botentry.botAmount)
+        }
         return cell
     }
     
-
+    
+    @IBAction func addBot(_ sender: UIBarButtonItem) {
+        
+        let alert = UIAlertController(title: "Add Bot", message: "Type in a bot name and amount", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
+        alert.addTextField(configurationHandler: { textField in textField.placeholder = "Type a bot name:" })
+        alert.addTextField(configurationHandler: { textField in textField.placeholder = "Enter the amount:" })
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
+            
+            if (alert.textFields?.first?.text) != nil {
+                let playersDb = Firestore.firestore()
+                        
+                do {
+                    try playersDb.collection("bot").addDocument(from: self.botentry)
+                } catch {}
+                }
+        }))
+        self.present(alert, animated: true)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

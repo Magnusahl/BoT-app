@@ -8,8 +8,9 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestoreSwift
 
-class PlayerEntry : Codable{
+class PlayerEntry : Codable {
     
     var name: String
     var amount: Int
@@ -22,7 +23,7 @@ class PlayerEntry : Codable{
         self.id = ""
         self.botCount = botCount
     }
-    
+    //Comment out before value and add a string and int, if the database goes corrupt
     init(snapshot: QueryDocumentSnapshot) {
         let value = snapshot.data() as [String : Any]
         name = value["name"] as! String

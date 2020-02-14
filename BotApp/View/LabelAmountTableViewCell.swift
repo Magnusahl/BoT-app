@@ -13,9 +13,8 @@ import FirebaseFirestoreSwift
 
 class LabelAmountTableViewCell: UITableViewCell {
 
-    let cellIdentity = "PlayerAmountCell"
-//    let bot = Bot()
-//    var botAmounts = Firestore.firestore().collection("players").child("amount")
+//    let cellIdentity = "PlayerAmountCell"
+
     var players = Players()
     var playerEntry: PlayerEntry?
     
