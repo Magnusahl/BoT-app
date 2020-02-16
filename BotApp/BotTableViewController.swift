@@ -25,7 +25,10 @@ class BotTableViewController: UITableViewController {
     }
     
     func readFromBotDB() {
-        let botRef = Firestore.firestore().collection("bot")
+        guard let currentUser = Auth.auth().currentUser else {
+            print("oj bot"); return}
+        
+        let botRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("bot")
         
         botRef.addSnapshotListener() {
             (snapshot, error) in
@@ -80,14 +83,18 @@ class BotTableViewController: UITableViewController {
         alert.addTextField(configurationHandler: { textField in textField.placeholder = "Enter the amount:" })
         alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
             
-            if (alert.textFields?.first?.text) != nil {
-                let playersDb = Firestore.firestore()
-                        
+            if let text = alert.textFields?.first?.text {
+                guard let currentUser = Auth.auth().currentUser else {return}
+                
+                let playersDb = Firestore.firestore().collection("users").document(currentUser.uid)
+                
+                self.botentry.botName = text
+                
                 do {
                     try playersDb.collection("bot").addDocument(from: self.botentry)
                 } catch {}
                 }
-        }))
+            }))
         self.present(alert, animated: true)
     }
     

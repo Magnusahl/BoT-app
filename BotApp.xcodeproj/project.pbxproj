@@ -170,8 +170,6 @@
 				F7C8F4A423E1B109009E7905 /* PlayerListTableViewController.swift */,
 				F794D83223E99D9800B52DB9 /* BotTableViewController.swift */,
 				F7C8F4A623E1B199009E7905 /* PlayerEntryViewController.swift */,
-				F794D80523E42D4800B52DB9 /* NewEntryViewController.swift */,
-				F794D83823E9A41000B52DB9 /* NewBotEntryViewController.swift */,
 				F777B5EC23F3DF3F00D210B4 /* StartViewController.swift */,
 			);
 			name = Controller;
@@ -212,6 +210,8 @@
 				F7B6F87123C8705300FECA14 /* LaunchScreen.storyboard */,
 				F794D83A23EAE1F100B52DB9 /* GoogleService-Info.plist */,
 				F7B6F87423C8705300FECA14 /* Info.plist */,
+				F794D80523E42D4800B52DB9 /* NewEntryViewController.swift */,
+				F794D83823E9A41000B52DB9 /* NewBotEntryViewController.swift */,
 			);
 			path = BotApp;
 			sourceTree = "<group>";

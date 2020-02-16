@@ -22,7 +22,7 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
 
         auth = Auth.auth()
-        
+
         if let user = self.auth.currentUser {
             print(user.email)
             do {
@@ -31,10 +31,9 @@ class StartViewController: UIViewController {
                 print("Error signing out")
             }
         }
-        
     }
     
-    
+    //Sign up the user
     @IBAction func signUp(_ sender: UIButton) {
         
         let alertController = UIAlertController(title: nil, message: "Signup", preferredStyle: .alert)
@@ -45,13 +44,13 @@ class StartViewController: UIViewController {
         }
         
         alertController.addTextField { (textField) in
-        textField.placeholder = "Password"
-        textField.isSecureTextEntry = true
+            textField.placeholder = "Password"
+            textField.isSecureTextEntry = true
         }
         
         alertController.addTextField { (textField) in
-        textField.placeholder = "Password Confirmation"
-        textField.isSecureTextEntry = true
+            textField.placeholder = "Password Confirmation"
+            textField.isSecureTextEntry = true
         }
         
         let signupAction = UIAlertAction(title: "Sign Up", style: .default) { (_) in
@@ -59,8 +58,8 @@ class StartViewController: UIViewController {
             let passwordField = alertController.textFields![1]
             let conformPasswordField = alertController.textFields![2]
 
-            //Perform validation or whatever you do want with the text of textfield
-
+            
+            
             //SigunUp With Firebase
             Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { result, error in
                 if let user = self.auth.currentUser {
@@ -70,18 +69,16 @@ class StartViewController: UIViewController {
                 }
             }
         }
-        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.addAction(signupAction)
-        alertController.addAction(cancelAction)
+            alertController.addAction(signupAction)
+            alertController.addAction(cancelAction)
 
         DispatchQueue.main.async {
             self.present(alertController, animated: true, completion: nil)
         }
-        
     }
     
-    
+    //Log in the user
     @IBAction func logIn(_ sender: UIButton) {
         
         let alertController = UIAlertController(title: nil, message: "Log In", preferredStyle: .alert)
@@ -92,10 +89,9 @@ class StartViewController: UIViewController {
         }
 
         alertController.addTextField { (textField) in
-        textField.placeholder = "Password"
-        textField.isSecureTextEntry = true
+            textField.placeholder = "Password"
+            textField.isSecureTextEntry = true
         }
-        
         
         let loginAction = UIAlertAction(title: "Log in", style: .default) { (_) in
             let emailField = alertController.textFields![0]
@@ -118,12 +114,11 @@ class StartViewController: UIViewController {
 
                 DispatchQueue.main.async {
                     self.present(alertController, animated: true, completion: nil)
-                
             }
     }
-        
-        
     
+        
+        
     
     /*
     // MARK: - Navigation
