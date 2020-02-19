@@ -14,13 +14,11 @@ class BotTableViewController: UITableViewController {
 
     let cellIdentity = "BotEntryCell"
     let bot = Bot()
-    var botentry = BotEntry(botName: "", botAmount: 0, id: "")
+ //   var botentry = BotEntry(botName: "", botAmount: 0, id: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        
+        title = "Bot List"
         readFromBotDB()
     }
     
@@ -66,10 +64,9 @@ class BotTableViewController: UITableViewController {
 
         if let entry = bot.entry(index: indexPath.row) {
             cell.textLabel?.text = entry.botName
+            cell.botAmount?.text = String(entry.botAmount)
         }
-        if bot.entry(index: indexPath.row) != nil {
-        cell.botAmount.text = String(botentry.botAmount)
-        }
+        
         return cell
     }
     
@@ -83,21 +80,31 @@ class BotTableViewController: UITableViewController {
         alert.addTextField(configurationHandler: { textField in textField.placeholder = "Enter the amount:" })
         alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
             
+            let botentry = BotEntry(botName: "", botAmount: 0, id: "")
+            
+            // set name
             if let text = alert.textFields?.first?.text {
-                guard let currentUser = Auth.auth().currentUser else {return}
-                
-                let playersDb = Firestore.firestore().collection("users").document(currentUser.uid)
-                
-                self.botentry.botName = text
-                
-                do {
-                    try playersDb.collection("bot").addDocument(from: self.botentry)
-                } catch {}
+                botentry.botName = text
+            }
+            
+            
+            // set botamount
+            if let amount = alert.textFields?[1].text {
+                if let amount = Int(amount) {
+                    botentry.botAmount = amount
                 }
-            }))
+            }
+            
+            guard let currentUser = Auth.auth().currentUser else {return}
+            
+            let playersDb = Firestore.firestore().collection("users").document(currentUser.uid)
+            do {
+                try playersDb.collection("bot").addDocument(from: botentry)
+            } catch {}
+        }))
         self.present(alert, animated: true)
     }
-    
+//
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -17,7 +17,7 @@ class PlayerEntryViewController: UIViewController {
     @IBOutlet weak var botCountLabel: UILabel!
     
     var playerEntry: PlayerEntry?
-    let playersRef = Firestore.firestore().collection("players")
+//    let playersRef = Firestore.firestore().collection("players")
     var amount = 0
     var botCount = 0
     var id = ""
@@ -25,34 +25,41 @@ class PlayerEntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Show the total amount of bot placed on the player
         if let amount = playerEntry?.amount {
             amountLabel.text = String(amount)
         }
-        
+
+        //Show the total count of bots
         if let botCount = playerEntry?.botCount {
             botCountLabel.text = String(botCount)
         }
         
+        //Show the player name
         nameLabel.text = playerEntry?.name
-        // Do any additional setup after loading the view.
+        
     }
     
     
     @IBAction func addBotWater(_ sender: UIButton) {
-        guard var playerEntry = playerEntry else {print("entry nil") ; return}
+        guard let playerEntry = playerEntry else {print("entry nil") ; return}
         
         print("add")
         playerEntry.amount += 10
         
+        // playerEntry.amount += bot.amount
+        
         print("bot")
         playerEntry.botCount += 1
         
-       // let botCount = playerEntry.botCount
         botCountLabel.text = String(playerEntry.botCount)
         
+        guard let currentUser = Auth.auth().currentUser else  { return }
+        
+        let playersDb = Firestore.firestore().collection("users").document(currentUser.uid)
         
         do {
-            try playersRef.document(playerEntry.id).setData(from: playerEntry)
+            try playersDb.collection("players").document(playerEntry.id).setData(from: playerEntry)
             amountLabel.text = String(playerEntry.amount)
         } catch {}
         

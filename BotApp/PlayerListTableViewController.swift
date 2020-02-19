@@ -12,6 +12,8 @@ import FirebaseFirestoreSwift
 
 class PlayerListTableViewController: UITableViewController {
     
+    @IBOutlet weak var teamName: UILabel!
+    
     let cellIdentity = "PlayerEntryCell"
     let playerEntrySegueId = "showPlayerEntry"
     let players = Players()
@@ -19,11 +21,12 @@ class PlayerListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("!!!!!!!!!: \(Auth.auth().currentUser)")
+        title = "Player list"
+//        print("!!!!!!!!!: \(Auth.auth().currentUser)")
         
         readFromDB()
     }
+    
     
     func readFromDB() {
         guard let currentUser = Auth.auth().currentUser else  { print("oj"); return }
@@ -49,6 +52,19 @@ class PlayerListTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+//    Logout the user
+    @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
+        
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+//            navigationController?.popToViewController(StartViewController, animated: true)
+            
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+    }
+    
     
     
     // MARK: - Table view data source
@@ -69,11 +85,13 @@ class PlayerListTableViewController: UITableViewController {
         
         if let entry = players.entry(index: indexPath.row) {
             cell.textLabel?.text = entry.name
+            cell.amountLabel?.text = String(entry.amount)
+            
         }
         
-        if let entry = players.entry(index: indexPath.row) {
-            cell.amountLabel.text = String(entry.amount)
-        }
+//        if let entry = players.entry(index: indexPath.row) {
+//            cell.amountLabel?.text = String(entry.amount)
+//        }
         
         return cell
     }
@@ -138,7 +156,7 @@ class PlayerListTableViewController: UITableViewController {
             
             destinationVC.playerEntry = entry
         } else if segue.identifier == newEntrySegueId {
-            guard let destinationVC = segue.destination as? NewEntryViewController else {return}
+            guard segue.destination is NewEntryViewController else {return}
             
             //            destinationVC.players = players
             //            destinationVC.playerVC = self

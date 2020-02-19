@@ -7,12 +7,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--BoT List-->
+        <!--Bot Table View Controller-->
         <scene sceneID="X2M-iX-Lw3">
             <objects>
                 <tableViewController id="7ba-1H-Ulo" customClass="BotTableViewController" customModule="BotApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eGc-Ws-LAR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -24,7 +24,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqd-Qf-dab">
-                                            <rect key="frame" x="308" y="-1" width="86" height="44"/>
+                                            <rect key="frame" x="296" y="-1" width="86" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <nil key="textColor"/>
@@ -42,7 +42,7 @@
                             <outlet property="delegate" destination="7ba-1H-Ulo" id="0gU-gL-P3N"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="BoT List" id="nCz-qN-VPr">
+                    <navigationItem key="navigationItem" id="nCz-qN-VPr">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xMG-Py-dxr">
                             <connections>
                                 <action selector="addBot:" destination="7ba-1H-Ulo" id="gw9-vU-BV3"/>
@@ -52,9 +52,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zl-vM-CgL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2920" y="-629"/>
+            <point key="canvasLocation" x="2148" y="-605"/>
         </scene>
-        <!--Player List-->
+        <!--Player List Table View Controller-->
         <scene sceneID="CYo-94-XVB">
             <objects>
                 <tableViewController id="O9A-Gj-A1r" customClass="PlayerListTableViewController" customModule="BotApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -78,7 +78,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWt-45-si1">
-                                            <rect key="frame" x="280" y="-1" width="114" height="44"/>
+                                            <rect key="frame" x="294" y="-1" width="89" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <nil key="textColor"/>
@@ -87,7 +87,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="amountLabel" destination="DWt-45-si1" id="XMk-Ue-aXi"/>
+                                    <outlet property="amountLabel" destination="DWt-45-si1" id="uli-Xx-0dy"/>
                                     <segue destination="lFH-RN-kYq" kind="presentation" identifier="showPlayerEntry" id="YQG-PL-G0b"/>
                                 </connections>
                             </tableViewCell>
@@ -98,7 +98,8 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Player List" id="a7z-Qc-vhP">
+                    <navigationItem key="navigationItem" id="a7z-Qc-vhP">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="0hY-59-nUr"/>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="5sx-FY-3tb">
                                 <connections>
@@ -113,6 +114,9 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="teamName" destination="fEQ-Xe-cmt" id="E9U-sh-WCL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJJ-Hr-4ad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -156,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ers-Es-SR1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2691" y="836"/>
+            <point key="canvasLocation" x="2681" y="1225"/>
         </scene>
         <!--Player Entry View Controller-->
         <scene sceneID="dw8-yM-gtO">
@@ -328,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8H-7y-aZt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3436" y="836"/>
+            <point key="canvasLocation" x="3426" y="1225"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="9Fk-5F-DIZ">
@@ -395,6 +399,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yQ4-zn-dWY"/>
+        <segue reference="j1P-Mh-ZeA"/>
     </inferredMetricsTieBreakers>
 </document>

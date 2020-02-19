@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestoreSwift
 
 class botAmountTableViewCell: UITableViewCell {
     
 
+    let cellIdentity = "BotEntryCell"
+    
+    var bot = Bot()
+    var botEntry: BotEntry?
     
     @IBOutlet weak var botAmount: UILabel!
     
@@ -19,5 +25,16 @@ class botAmountTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath)
+                as! botAmountTableViewCell
+
+    //        if let entry = players.entry(index: indexPath.row) {
+                cell.botAmount?.text = String(botEntry!.botAmount)
+    //            cell.labelAmount?.text = amountLabel.text
+            
+            return cell
+        }
 
 }

@@ -13,7 +13,7 @@ import FirebaseFirestoreSwift
 
 class LabelAmountTableViewCell: UITableViewCell {
 
-//    let cellIdentity = "PlayerAmountCell"
+    let cellIdentity = "PlayerAmountCell"
 
     var players = Players()
     var playerEntry: PlayerEntry?
@@ -22,31 +22,24 @@ class LabelAmountTableViewCell: UITableViewCell {
     @IBOutlet weak var amountLabel: UILabel!
     
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
-//
-//     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return bot.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath) as! LabelAmountTableViewCell
-//
-////        if let entry = players.entry(index: indexPath.row) {
-//            cell.amountLabel.text = String(playerEntry!.amount)
-//
-//
-//        return cell
-//    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath)
+            as! LabelAmountTableViewCell
+
+//        if let entry = players.entry(index: indexPath.row) {
+            cell.amountLabel?.text = String(playerEntry!.amount)
+//            cell.labelAmount?.text = amountLabel.text
+        print("amount: \(playerEntry!.amount)")
+        return cell
+    }
     
 //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LabelAmountTableViewCell
-//        
-//        let amountLabel = amountlabels[indexPath.row]
+//
+//        let amountLabel = amountlabel[indexPath.row]
 //        cell.labelAmount?.text = amountLabel.text
-//        
+//
 //        return cell
 //
 //    }

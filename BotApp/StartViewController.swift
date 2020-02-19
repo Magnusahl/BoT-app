@@ -53,11 +53,16 @@ class StartViewController: UIViewController {
             textField.isSecureTextEntry = true
         }
         
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Team name"
+            textField.keyboardType = .default
+        }
+        
         let signupAction = UIAlertAction(title: "Sign Up", style: .default) { (_) in
             let emailField = alertController.textFields![0]
             let passwordField = alertController.textFields![1]
             let conformPasswordField = alertController.textFields![2]
-
+            let teamField = alertController.textFields![3]
             
             
             //SigunUp With Firebase
@@ -116,6 +121,8 @@ class StartViewController: UIViewController {
                     self.present(alertController, animated: true, completion: nil)
             }
     }
+    
+    
     
         
         
