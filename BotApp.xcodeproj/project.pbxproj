@@ -10,13 +10,15 @@
 		5364D73F7CDC288BD7B9073A /* Pods_BotAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95464D19D03D8DE9C1562C6D /* Pods_BotAppTests.framework */; };
 		69C55FD349751D5C07D9995A /* Pods_BotApp_BotAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274BD3AAD4EC362196AE4CFC /* Pods_BotApp_BotAppUITests.framework */; };
 		DCE9F3CF68E11FD36F762062 /* Pods_BotApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C8AD3BC9AF0F4738D21463 /* Pods_BotApp.framework */; };
+		F74EB8BB23FD2D39008E683B /* AddBotToPlayerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EB8BA23FD2D39008E683B /* AddBotToPlayerTableViewController.swift */; };
+		F74EB8BD23FEAFF7008E683B /* TeamName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EB8BC23FEAFF7008E683B /* TeamName.swift */; };
 		F760BAE023F44C7A006BC5DC /* botAmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F760BADF23F44C7A006BC5DC /* botAmountTableViewCell.swift */; };
 		F777B5ED23F3DF3F00D210B4 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777B5EC23F3DF3F00D210B4 /* StartViewController.swift */; };
 		F777B5EF23F4252600D210B4 /* TeamNameEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777B5EE23F4252600D210B4 /* TeamNameEntry.swift */; };
 		F794D80623E42D4800B52DB9 /* NewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D80523E42D4800B52DB9 /* NewEntryViewController.swift */; };
 		F794D83323E99D9800B52DB9 /* BotTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D83223E99D9800B52DB9 /* BotTableViewController.swift */; };
-		F794D83523E99ECE00B52DB9 /* BotEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D83423E99ECE00B52DB9 /* BotEntry.swift */; };
-		F794D83723E99F7500B52DB9 /* Bot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D83623E99F7500B52DB9 /* Bot.swift */; };
+		F794D83523E99ECE00B52DB9 /* Penelty.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D83423E99ECE00B52DB9 /* Penelty.swift */; };
+		F794D83723E99F7500B52DB9 /* Penalties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D83623E99F7500B52DB9 /* Penalties.swift */; };
 		F794D83923E9A41000B52DB9 /* NewBotEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D83823E9A41000B52DB9 /* NewBotEntryViewController.swift */; };
 		F794D83B23EAE1F100B52DB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F794D83A23EAE1F100B52DB9 /* GoogleService-Info.plist */; };
 		F794D88523EEEFED00B52DB9 /* LabelAmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D88423EEEFED00B52DB9 /* LabelAmountTableViewCell.swift */; };
@@ -61,13 +63,15 @@
 		9A1E0DF50084888BB53F7B95 /* Pods-BotApp-BotAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotApp-BotAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-BotApp-BotAppUITests/Pods-BotApp-BotAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C2C8AD3BC9AF0F4738D21463 /* Pods_BotApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BotApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70226BE46A4E75EBE6DE520 /* Pods-BotApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotApp.release.xcconfig"; path = "Target Support Files/Pods-BotApp/Pods-BotApp.release.xcconfig"; sourceTree = "<group>"; };
+		F74EB8BA23FD2D39008E683B /* AddBotToPlayerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBotToPlayerTableViewController.swift; sourceTree = "<group>"; };
+		F74EB8BC23FEAFF7008E683B /* TeamName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamName.swift; sourceTree = "<group>"; };
 		F760BADF23F44C7A006BC5DC /* botAmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = botAmountTableViewCell.swift; sourceTree = "<group>"; };
 		F777B5EC23F3DF3F00D210B4 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		F777B5EE23F4252600D210B4 /* TeamNameEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamNameEntry.swift; sourceTree = "<group>"; };
 		F794D80523E42D4800B52DB9 /* NewEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryViewController.swift; sourceTree = "<group>"; };
 		F794D83223E99D9800B52DB9 /* BotTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotTableViewController.swift; sourceTree = "<group>"; };
-		F794D83423E99ECE00B52DB9 /* BotEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotEntry.swift; sourceTree = "<group>"; };
-		F794D83623E99F7500B52DB9 /* Bot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bot.swift; sourceTree = "<group>"; };
+		F794D83423E99ECE00B52DB9 /* Penelty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Penelty.swift; sourceTree = "<group>"; };
+		F794D83623E99F7500B52DB9 /* Penalties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Penalties.swift; sourceTree = "<group>"; };
 		F794D83823E9A41000B52DB9 /* NewBotEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBotEntryViewController.swift; sourceTree = "<group>"; };
 		F794D83A23EAE1F100B52DB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F794D88423EEEFED00B52DB9 /* LabelAmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAmountTableViewCell.swift; sourceTree = "<group>"; };
@@ -146,9 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				F7C8F4A023E1ABF4009E7905 /* Players.swift */,
-				F794D83623E99F7500B52DB9 /* Bot.swift */,
+				F794D83623E99F7500B52DB9 /* Penalties.swift */,
+				F74EB8BC23FEAFF7008E683B /* TeamName.swift */,
 				F7C8F4A223E1AC15009E7905 /* PlayerEntry.swift */,
-				F794D83423E99ECE00B52DB9 /* BotEntry.swift */,
+				F794D83423E99ECE00B52DB9 /* Penelty.swift */,
 				F777B5EE23F4252600D210B4 /* TeamNameEntry.swift */,
 			);
 			name = Module;
@@ -171,6 +176,7 @@
 				F794D83223E99D9800B52DB9 /* BotTableViewController.swift */,
 				F7C8F4A623E1B199009E7905 /* PlayerEntryViewController.swift */,
 				F777B5EC23F3DF3F00D210B4 /* StartViewController.swift */,
+				F74EB8BA23FD2D39008E683B /* AddBotToPlayerTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -476,7 +482,7 @@
 			files = (
 				F794D88523EEEFED00B52DB9 /* LabelAmountTableViewCell.swift in Sources */,
 				F777B5ED23F3DF3F00D210B4 /* StartViewController.swift in Sources */,
-				F794D83523E99ECE00B52DB9 /* BotEntry.swift in Sources */,
+				F794D83523E99ECE00B52DB9 /* Penelty.swift in Sources */,
 				F760BAE023F44C7A006BC5DC /* botAmountTableViewCell.swift in Sources */,
 				F7C8F4A323E1AC15009E7905 /* PlayerEntry.swift in Sources */,
 				F7C8F4A523E1B109009E7905 /* PlayerListTableViewController.swift in Sources */,
@@ -487,9 +493,11 @@
 				F7B6F86923C8705100FECA14 /* SceneDelegate.swift in Sources */,
 				F794D83923E9A41000B52DB9 /* NewBotEntryViewController.swift in Sources */,
 				F794D80623E42D4800B52DB9 /* NewEntryViewController.swift in Sources */,
+				F74EB8BB23FD2D39008E683B /* AddBotToPlayerTableViewController.swift in Sources */,
 				F7C8F4A123E1ABF4009E7905 /* Players.swift in Sources */,
+				F74EB8BD23FEAFF7008E683B /* TeamName.swift in Sources */,
 				F794D88723F1599B00B52DB9 /* BotUITableView.swift in Sources */,
-				F794D83723E99F7500B52DB9 /* Bot.swift in Sources */,
+				F794D83723E99F7500B52DB9 /* Penalties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,7 +672,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VM2H9MQMCU;
 				INFOPLIST_FILE = BotApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -682,7 +692,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VM2H9MQMCU;
 				INFOPLIST_FILE = BotApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

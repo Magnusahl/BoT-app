@@ -14,7 +14,7 @@ import FirebaseFirestoreSwift
 class BotUITableView: UITableView {
 
     let cellIdentity = "BotEntryCell"
-    let bot = Bot()
+    let bot = Penalties()
 
 //    func botRefresh() {
 //        tableView.reloadData()

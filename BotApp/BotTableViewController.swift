@@ -13,7 +13,7 @@ import FirebaseFirestoreSwift
 class BotTableViewController: UITableViewController {
 
     let cellIdentity = "BotEntryCell"
-    let bot = Bot()
+    let bot = Penalties()
  //   var botentry = BotEntry(botName: "", botAmount: 0, id: "")
     
     override func viewDidLoad() {
@@ -35,7 +35,7 @@ class BotTableViewController: UITableViewController {
             self.bot.removeAll()
             for document in documents {
                 
-                let bot = BotEntry(snapshot: document)
+                let bot = Penelty(snapshot: document)
                 self.bot.add(entry: bot)
             }
             self.botRefresh()
@@ -80,7 +80,7 @@ class BotTableViewController: UITableViewController {
         alert.addTextField(configurationHandler: { textField in textField.placeholder = "Enter the amount:" })
         alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
             
-            let botentry = BotEntry(botName: "", botAmount: 0, id: "")
+            let botentry = Penelty(botName: "", botAmount: 0, id: "")
             
             // set name
             if let text = alert.textFields?.first?.text {

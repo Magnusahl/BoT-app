@@ -12,7 +12,7 @@
             <objects>
                 <tableViewController id="7ba-1H-Ulo" customClass="BotTableViewController" customModule="BotApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eGc-Ws-LAR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -99,7 +99,11 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="a7z-Qc-vhP">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="0hY-59-nUr"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="0hY-59-nUr">
+                            <connections>
+                                <action selector="logOutPressed:" destination="O9A-Gj-A1r" id="ces-YB-3XD"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="5sx-FY-3tb">
                                 <connections>
@@ -233,7 +237,7 @@
                                 <rect key="frame" x="188" y="268" width="25" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="7ba-1H-Ulo" kind="show" id="j1P-Mh-ZeA"/>
+                                    <segue destination="ugh-Jd-anM" kind="show" id="ecT-Am-Wxt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Antal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNo-p7-v57">
@@ -257,6 +261,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGr-mD-8l7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2148" y="122"/>
+        </scene>
+        <!--Add Bot To Player Table View Controller-->
+        <scene sceneID="u6W-Jv-ilj">
+            <objects>
+                <tableViewController id="ugh-Jd-anM" customClass="AddBotToPlayerTableViewController" customModule="BotApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="waS-EL-oK7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BotCell" id="rnn-Lg-ICa" customClass="botAmountTableViewCell" customModule="BotApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rnn-Lg-ICa" id="EeJ-fh-NYn">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibh-eD-Jp9">
+                                            <rect key="frame" x="286" y="-1" width="86" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="botAmount" destination="ibh-eD-Jp9" id="ENn-Ha-4Eg"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ugh-Jd-anM" id="tyA-Vx-xRf"/>
+                            <outlet property="delegate" destination="ugh-Jd-anM" id="v7m-Qh-xRQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="pR9-Et-2Q7"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xej-Ru-Vrv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3034.7826086956525" y="115.84821428571428"/>
         </scene>
         <!--addBoT-->
         <scene sceneID="tdR-2Z-kzN">
@@ -398,7 +443,4 @@
             <point key="canvasLocation" x="350" y="122"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="j1P-Mh-ZeA"/>
-    </inferredMetricsTieBreakers>
 </document>

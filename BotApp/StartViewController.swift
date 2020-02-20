@@ -64,6 +64,22 @@ class StartViewController: UIViewController {
             let conformPasswordField = alertController.textFields![2]
             let teamField = alertController.textFields![3]
             
+            if let teamField = alertController.textFields?[3].text {
+                guard let currentUser = Auth.auth().currentUser else  { return }
+                
+                let playersDb = Firestore.firestore().collection("users").document(currentUser.uid)
+                
+                let teamNameEntry = TeamNameEntry(teamName: "", id: "")
+                
+                teamNameEntry.teamName = teamField
+                
+                do {
+                    try playersDb.collection("players").addDocument(from: self.teamName)
+                } catch {}
+                
+                print(self.teamName)
+            }
+            
             
             //SigunUp With Firebase
             Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { result, error in

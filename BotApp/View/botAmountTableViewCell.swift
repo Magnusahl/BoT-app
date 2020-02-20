@@ -15,8 +15,9 @@ class botAmountTableViewCell: UITableViewCell {
 
     let cellIdentity = "BotEntryCell"
     
-    var bot = Bot()
-    var botEntry: BotEntry?
+    var bot = Penalties()
+    var botEntry: Penelty?
+    
     
     @IBOutlet weak var botAmount: UILabel!
     

@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class BotEntry : Codable {
+class Penelty : Codable {
     
     var botName: String
     var botAmount: Int

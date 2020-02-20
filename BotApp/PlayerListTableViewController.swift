@@ -22,7 +22,7 @@ class PlayerListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Player list"
-//        print("!!!!!!!!!: \(Auth.auth().currentUser)")
+        print("!!!!!!!!!: \(Auth.auth().currentUser)")
         
         readFromDB()
     }
@@ -58,7 +58,7 @@ class PlayerListTableViewController: UITableViewController {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-//            navigationController?.popToViewController(StartViewController, animated: true)
+            navigationController?.popViewController(animated: true)
             
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
@@ -86,15 +86,17 @@ class PlayerListTableViewController: UITableViewController {
         if let entry = players.entry(index: indexPath.row) {
             cell.textLabel?.text = entry.name
             cell.amountLabel?.text = String(entry.amount)
-            
         }
-        
-//        if let entry = players.entry(index: indexPath.row) {
-//            cell.amountLabel?.text = String(entry.amount)
-//        }
-        
         return cell
     }
+    
+//    func sortTable() {
+//        
+//        Firestore.firestore().nameField: name
+//        
+//        Firestore.firestore().collection("users").document("players")
+//            .order(by: Firestore.nameField)
+//    }
     
     
     
@@ -124,21 +126,17 @@ class PlayerListTableViewController: UITableViewController {
         self.present(alert, animated: true)
     }
     
-    // Delete players*****
-    //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    //        if editingStyle == .delete {
-    //            let state = name[indexPath.row]
-    //            players.remove(at: indexPath.row)
-    //
-    //            // Delete the row from the data source
-    //            tableView.deleteRows(at: [indexPath], with: .fade)
-    //
-    //            Firestore.firestore().collection().child("players").child(name[indexPath.row]).removeValue()
-    //            name.remove(at: indexPath.row)
-    //        } else if editingStyle == .insert {
-    //            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    //        }
-    //    }
+//     Delete players*****
+//        override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//            
+//            if editingStyle == .delete {
+//                playersDb.collection("players").document(player.id).del
+//            }
+//            
+//            print(indexPath.row)
+//            
+//            }
+    
     
     // MARK: - Navigation
     
