@@ -10,7 +10,7 @@ import Foundation
 
 class Players {
     
-    private var entries = [PlayerEntry]()
+    private var entries = [Player]()
     
     //computed property
     var count: Int {
@@ -18,11 +18,11 @@ class Players {
     }
     
     //Lägga till player
-    func add(entry: PlayerEntry) {
+    func add(entry: Player) {
         entries.append(entry)
     }
     
-    func entry(index: Int) -> PlayerEntry? {
+    func entry(index: Int) -> Player? {
         if index >= 0 && index < entries.count {
             return entries[index]
         }

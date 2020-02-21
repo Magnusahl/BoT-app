@@ -35,7 +35,7 @@ class BotTableViewController: UITableViewController {
             self.bot.removeAll()
             for document in documents {
                 
-                let bot = Penelty(snapshot: document)
+                let bot = Penalty(snapshot: document)
                 self.bot.add(entry: bot)
             }
             self.botRefresh()
@@ -75,12 +75,12 @@ class BotTableViewController: UITableViewController {
         
         let alert = UIAlertController(title: "Add Bot", message: "Type in a bot name and amount", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         alert.addTextField(configurationHandler: { textField in textField.placeholder = "Type a bot name:" })
         alert.addTextField(configurationHandler: { textField in textField.placeholder = "Enter the amount:" })
         alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
             
-            let botentry = Penelty(botName: "", botAmount: 0, id: "")
+            let botentry = Penalty(botName: "", botAmount: 0, id: "")
             
             // set name
             if let text = alert.textFields?.first?.text {

@@ -36,7 +36,7 @@ class AddBotToPlayerTableViewController: UITableViewController {
             self.penalties.removeAll()
             for document in documents {
                 
-                let bot = Penelty(snapshot: document)
+                let bot = Penalty(snapshot: document)
                 self.penalties.add(entry: bot)
             }
             self.botRefresh()

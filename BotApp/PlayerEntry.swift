@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
-class PlayerEntry : Codable {
+class Player : Codable {
     
     var name: String
     var amount: Int

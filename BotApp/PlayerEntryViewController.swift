@@ -16,7 +16,7 @@ class PlayerEntryViewController: UIViewController {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var botCountLabel: UILabel!
     
-    var playerEntry: PlayerEntry?
+    var playerEntry: Player?
 //    var amount = 0
 //    var botCount = 0
 //    var id = ""
@@ -40,7 +40,7 @@ class PlayerEntryViewController: UIViewController {
     }
     
     //add bot from the bot list on to the player
-    func applyBot(botEntry: Penelty) {
+    func applyBot(botEntry: Penalty) {
         guard let currentUser = Auth.auth().currentUser else  { return }
         
         guard let playerEntry = playerEntry else {print("entry nil") ; return}

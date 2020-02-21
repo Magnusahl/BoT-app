@@ -19,6 +19,7 @@ class PlayerListTableViewController: UITableViewController {
     let players = Players()
     let newEntrySegueId = "createPlayerEntry"
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Player list"
@@ -30,7 +31,7 @@ class PlayerListTableViewController: UITableViewController {
     
     func readFromDB() {
         guard let currentUser = Auth.auth().currentUser else  { print("oj"); return }
-               
+        
         let playersRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("players")
         
         playersRef.addSnapshotListener() {
@@ -40,7 +41,7 @@ class PlayerListTableViewController: UITableViewController {
             self.players.removeAll()
             for document in documents {
                 
-                let player = PlayerEntry(snapshot: document)
+                let player = Player(snapshot: document)
                 self.players.add(entry: player)
             }
             self.refresh()
@@ -52,13 +53,12 @@ class PlayerListTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-//    Logout the user
+    //    Logout the user
     @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
         
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            navigationController?.popViewController(animated: true)
             
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
@@ -90,24 +90,22 @@ class PlayerListTableViewController: UITableViewController {
         return cell
     }
     
-//    func sortTable() {
-//        
-//        Firestore.firestore().nameField: name
-//        
-//        Firestore.firestore().collection("users").document("players")
-//            .order(by: Firestore.nameField)
-//    }
-    
-    
+    //    func sortTable() {
+    //
+    //        Firestore.firestore().nameField: name
+    //
+    //        Firestore.firestore().collection("users").document("players")
+    //            .order(by: Firestore.nameField)
+    //    }
     
     //Save player name in a UIAlert action *******
     @IBAction func addPlayer(_ sender: UIBarButtonItem) {
         
-        let entry = PlayerEntry(name: "", amount: 0, id: "", botCount: 0)
+        let entry = Player(name: "", amount: 0, id: "", botCount: 0)
         
         let alert = UIAlertController(title: "Add player", message: "Type in a player name", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         alert.addTextField(configurationHandler: { textField in textField.placeholder = "Type a player name:" })
         alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
             
@@ -126,16 +124,32 @@ class PlayerListTableViewController: UITableViewController {
         self.present(alert, animated: true)
     }
     
-//     Delete players*****
-//        override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//            
-//            if editingStyle == .delete {
-//                playersDb.collection("players").document(player.id).del
-//            }
-//            
-//            print(indexPath.row)
-//            
-//            }
+    //     Delete players*****
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+           
+            let player = players.entry(index: indexPath.row)
+            
+            guard let documentId = player?.id else {return}
+            
+            guard let currentUser = Auth.auth().currentUser else  { return }
+                           
+            let playersDb = Firestore.firestore().collection("users").document(currentUser.uid)
+                           
+            playersDb.collection("players").document(documentId).delete()
+            
+            //
+            //                if let user = Auth.auth().currentUser {
+            //
+            //                    let ref = Firestore.firestore().collection("players")
+            //                    let playersID = Auth.auth().currentUser?.uid
+            //
+            //                    ref.collectionID(playersID!).removeValue()
+            //               }
+            
+        }
+    }
     
     
     // MARK: - Navigation
@@ -161,3 +175,4 @@ class PlayerListTableViewController: UITableViewController {
         }
     }
 }
+

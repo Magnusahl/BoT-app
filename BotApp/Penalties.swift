@@ -10,7 +10,7 @@ import Foundation
 
 class Penalties {
     
-    private var entries = [Penelty]()
+    private var entries = [Penalty]()
     
     //computed property
     var count: Int {
@@ -18,11 +18,11 @@ class Penalties {
     }
     
     //Lägga till player
-    func add(entry: Penelty) {
+    func add(entry: Penalty) {
         entries.append(entry)
     }
     
-    func entry(index: Int) -> Penelty? {
+    func entry(index: Int) -> Penalty? {
         if index >= 0 && index < entries.count {
             return entries[index]
         }

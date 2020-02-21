@@ -16,7 +16,7 @@ class LabelAmountTableViewCell: UITableViewCell {
     let cellIdentity = "PlayerAmountCell"
 
     var players = Players()
-    var playerEntry: PlayerEntry?
+    var playerEntry: Player?
     
     
     @IBOutlet weak var amountLabel: UILabel!
