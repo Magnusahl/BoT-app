@@ -49,11 +49,15 @@ class PlayerEntryViewController: UIViewController {
         
         //botAmount + amount on player = new amount
         playerEntry.amount += botEntry.botAmount
+        print(playerEntry.amount)
+        
         playerEntry.botCount += 1
+        print(playerEntry.botCount)
         
         do {
             try playersDb.collection("players").document(playerEntry.id).setData(from: playerEntry)
             amountLabel.text = String(playerEntry.amount)
+            botCountLabel.text = String(playerEntry.botCount)
         } catch {}
     }
     
