@@ -16,7 +16,7 @@ class StartViewController: UIViewController {
     
     let segueID = "segueLogIn"
     
-    var teamName = TeamNameEntry(teamName: "", id: "")
+    var teamName = TeamName(teamName: "", id: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +48,10 @@ class StartViewController: UIViewController {
             textField.isSecureTextEntry = true
         }
         
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Password Confirmation"
-            textField.isSecureTextEntry = true
-        }
+//        alertController.addTextField { (textField) in
+//            textField.placeholder = "Password Confirmation"
+//            textField.isSecureTextEntry = true
+//        }
         
         alertController.addTextField { (textField) in
             textField.placeholder = "Team name"
@@ -61,25 +61,26 @@ class StartViewController: UIViewController {
         let signupAction = UIAlertAction(title: "Sign Up", style: .default) { (_) in
             let emailField = alertController.textFields![0]
             let passwordField = alertController.textFields![1]
-            let conformPasswordField = alertController.textFields![2]
-            let teamField = alertController.textFields![3]
+//            let conformPasswordField = alertController.textFields![2]
             
-            if let teamField = alertController.textFields?[3].text {
-                guard let currentUser = Auth.auth().currentUser else  { return }
-                
-                let playersDb = Firestore.firestore().collection("users").document(currentUser.uid)
-                
-                let teamNameEntry = TeamNameEntry(teamName: "", id: "")
-                
-                teamNameEntry.teamName = teamField
-                
-                do {
-                    try playersDb.collection("players").addDocument(from: self.teamName)
-                } catch {}
-                
-                print(self.teamName)
-            }
+//            let teamField = alertController.textFields![3]
             
+//            if let teamField = alertController.textFields?[3].text {
+//                guard let currentUser = Auth.auth().currentUser else  { return }
+//
+            //                    let changeRequest = user.createProfileChangeRequest()
+            //                        changeRequest.displayName = teamField.text
+            //                        changeRequest.commitChanges { (error) in
+            //
+            //                        }
+                
+                
+//                let playersDb = Firestore.firestore().collection("users").document(currentUser.uid)
+//                let teamNameEntry = TeamNameEntry(teamName: "", id: "")
+//                teamNameEntry.teamName = teamField
+                
+//                print(self.teamName)
+//            }
             
             //SigunUp With Firebase
             Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { result, error in

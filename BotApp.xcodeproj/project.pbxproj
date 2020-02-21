@@ -11,15 +11,13 @@
 		69C55FD349751D5C07D9995A /* Pods_BotApp_BotAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274BD3AAD4EC362196AE4CFC /* Pods_BotApp_BotAppUITests.framework */; };
 		DCE9F3CF68E11FD36F762062 /* Pods_BotApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C8AD3BC9AF0F4738D21463 /* Pods_BotApp.framework */; };
 		F74EB8BB23FD2D39008E683B /* AddBotToPlayerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EB8BA23FD2D39008E683B /* AddBotToPlayerTableViewController.swift */; };
-		F74EB8BD23FEAFF7008E683B /* TeamName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EB8BC23FEAFF7008E683B /* TeamName.swift */; };
+		F74EB8BD23FEAFF7008E683B /* TeamNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EB8BC23FEAFF7008E683B /* TeamNames.swift */; };
 		F760BAE023F44C7A006BC5DC /* botAmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F760BADF23F44C7A006BC5DC /* botAmountTableViewCell.swift */; };
 		F777B5ED23F3DF3F00D210B4 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777B5EC23F3DF3F00D210B4 /* StartViewController.swift */; };
-		F777B5EF23F4252600D210B4 /* TeamNameEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777B5EE23F4252600D210B4 /* TeamNameEntry.swift */; };
-		F794D80623E42D4800B52DB9 /* NewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D80523E42D4800B52DB9 /* NewEntryViewController.swift */; };
+		F777B5EF23F4252600D210B4 /* TeamName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777B5EE23F4252600D210B4 /* TeamName.swift */; };
 		F794D83323E99D9800B52DB9 /* BotTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D83223E99D9800B52DB9 /* BotTableViewController.swift */; };
 		F794D83523E99ECE00B52DB9 /* Penalty.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D83423E99ECE00B52DB9 /* Penalty.swift */; };
 		F794D83723E99F7500B52DB9 /* Penalties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D83623E99F7500B52DB9 /* Penalties.swift */; };
-		F794D83923E9A41000B52DB9 /* NewBotEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D83823E9A41000B52DB9 /* NewBotEntryViewController.swift */; };
 		F794D83B23EAE1F100B52DB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F794D83A23EAE1F100B52DB9 /* GoogleService-Info.plist */; };
 		F794D88523EEEFED00B52DB9 /* LabelAmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D88423EEEFED00B52DB9 /* LabelAmountTableViewCell.swift */; };
 		F794D88723F1599B00B52DB9 /* BotUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F794D88623F1599B00B52DB9 /* BotUITableView.swift */; };
@@ -64,15 +62,13 @@
 		C2C8AD3BC9AF0F4738D21463 /* Pods_BotApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BotApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70226BE46A4E75EBE6DE520 /* Pods-BotApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotApp.release.xcconfig"; path = "Target Support Files/Pods-BotApp/Pods-BotApp.release.xcconfig"; sourceTree = "<group>"; };
 		F74EB8BA23FD2D39008E683B /* AddBotToPlayerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBotToPlayerTableViewController.swift; sourceTree = "<group>"; };
-		F74EB8BC23FEAFF7008E683B /* TeamName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamName.swift; sourceTree = "<group>"; };
+		F74EB8BC23FEAFF7008E683B /* TeamNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamNames.swift; sourceTree = "<group>"; };
 		F760BADF23F44C7A006BC5DC /* botAmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = botAmountTableViewCell.swift; sourceTree = "<group>"; };
 		F777B5EC23F3DF3F00D210B4 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
-		F777B5EE23F4252600D210B4 /* TeamNameEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamNameEntry.swift; sourceTree = "<group>"; };
-		F794D80523E42D4800B52DB9 /* NewEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryViewController.swift; sourceTree = "<group>"; };
+		F777B5EE23F4252600D210B4 /* TeamName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamName.swift; sourceTree = "<group>"; };
 		F794D83223E99D9800B52DB9 /* BotTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotTableViewController.swift; sourceTree = "<group>"; };
 		F794D83423E99ECE00B52DB9 /* Penalty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Penalty.swift; sourceTree = "<group>"; };
 		F794D83623E99F7500B52DB9 /* Penalties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Penalties.swift; sourceTree = "<group>"; };
-		F794D83823E9A41000B52DB9 /* NewBotEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBotEntryViewController.swift; sourceTree = "<group>"; };
 		F794D83A23EAE1F100B52DB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F794D88423EEEFED00B52DB9 /* LabelAmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAmountTableViewCell.swift; sourceTree = "<group>"; };
 		F794D88623F1599B00B52DB9 /* BotUITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotUITableView.swift; sourceTree = "<group>"; };
@@ -151,10 +147,10 @@
 			children = (
 				F7C8F4A023E1ABF4009E7905 /* Players.swift */,
 				F794D83623E99F7500B52DB9 /* Penalties.swift */,
-				F74EB8BC23FEAFF7008E683B /* TeamName.swift */,
+				F74EB8BC23FEAFF7008E683B /* TeamNames.swift */,
 				F7C8F4A223E1AC15009E7905 /* PlayerEntry.swift */,
 				F794D83423E99ECE00B52DB9 /* Penalty.swift */,
-				F777B5EE23F4252600D210B4 /* TeamNameEntry.swift */,
+				F777B5EE23F4252600D210B4 /* TeamName.swift */,
 			);
 			name = Module;
 			sourceTree = "<group>";
@@ -216,8 +212,6 @@
 				F7B6F87123C8705300FECA14 /* LaunchScreen.storyboard */,
 				F794D83A23EAE1F100B52DB9 /* GoogleService-Info.plist */,
 				F7B6F87423C8705300FECA14 /* Info.plist */,
-				F794D80523E42D4800B52DB9 /* NewEntryViewController.swift */,
-				F794D83823E9A41000B52DB9 /* NewBotEntryViewController.swift */,
 			);
 			path = BotApp;
 			sourceTree = "<group>";
@@ -489,13 +483,11 @@
 				F7C8F4A723E1B199009E7905 /* PlayerEntryViewController.swift in Sources */,
 				F794D83323E99D9800B52DB9 /* BotTableViewController.swift in Sources */,
 				F7B6F86723C8705100FECA14 /* AppDelegate.swift in Sources */,
-				F777B5EF23F4252600D210B4 /* TeamNameEntry.swift in Sources */,
+				F777B5EF23F4252600D210B4 /* TeamName.swift in Sources */,
 				F7B6F86923C8705100FECA14 /* SceneDelegate.swift in Sources */,
-				F794D83923E9A41000B52DB9 /* NewBotEntryViewController.swift in Sources */,
-				F794D80623E42D4800B52DB9 /* NewEntryViewController.swift in Sources */,
 				F74EB8BB23FD2D39008E683B /* AddBotToPlayerTableViewController.swift in Sources */,
 				F7C8F4A123E1ABF4009E7905 /* Players.swift in Sources */,
-				F74EB8BD23FEAFF7008E683B /* TeamName.swift in Sources */,
+				F74EB8BD23FEAFF7008E683B /* TeamNames.swift in Sources */,
 				F794D88723F1599B00B52DB9 /* BotUITableView.swift in Sources */,
 				F794D83723E99F7500B52DB9 /* Penalties.swift in Sources */,
 			);

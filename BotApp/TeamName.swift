@@ -1,29 +1,30 @@
 //
-//  TeamName.swift
+//  teamName.swift
 //  BotApp
 //
-//  Created by Magnus Ahlqvist on 2020-02-20.
+//  Created by Magnus Ahlqvist on 2020-02-12.
 //  Copyright © 2020 Magnus Ahlqvist. All rights reserved.
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestoreSwift
 
-class TeamName {
+class TeamName : Codable {
     
-    private var entries = [TeamNameEntry]()
+    var teamName: String
+    var id: String
     
-    var count: Int {
-        return entries.count
+    init(teamName: String, id: String) {
+        self.teamName = teamName
+        self.id = ""
     }
     
-    func add(entry: TeamNameEntry) {
-        entries.append(entry)
+    init(snapshot: QueryDocumentSnapshot) {
+        let value = snapshot.data() as [String : Any]
+        teamName = value["teamName"] as! String
+        id = snapshot.documentID
     }
     
-    func entry(index: Int) -> TeamNameEntry? {
-        if index >= 0 && index < entries.count {
-            return entries[index]
-        }
-        return nil
-    }
+    
 }

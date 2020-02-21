@@ -99,6 +99,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="a7z-Qc-vhP">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="0hY-59-nUr">
                             <connections>
                                 <action selector="logOutPressed:" destination="O9A-Gj-A1r" id="ces-YB-3XD"/>
@@ -110,6 +111,12 @@
                                 <connections>
                                     <action selector="addPlayer:" destination="O9A-Gj-A1r" id="pPg-Py-Ifa"/>
                                 </connections>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="TyK-ig-tGI">
+                                <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="OKd-al-552">
+                                    <rect key="frame" x="302.5" y="6.5" width="51" height="31"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </switch>
                             </barButtonItem>
                             <barButtonItem title="BoT" id="ure-0V-32c">
                                 <connections>
@@ -131,6 +138,7 @@
         <!--addPlayer-->
         <scene sceneID="2j3-DT-SOu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ers-Es-SR1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController title="addPlayer" id="oOV-MA-c3B" customClass="NewEntryViewController" customModule="BotApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DeS-SR-lLZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -164,7 +172,6 @@
                         <outlet property="addName" destination="f2g-LC-ftg" id="MMa-mW-uWa"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ers-Es-SR1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2681" y="1225"/>
         </scene>
@@ -176,14 +183,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uem-E9-Q1g">
-                                <rect key="frame" x="51" y="115" width="164" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Glömt Vattenflaska 10kr"/>
-                                <connections>
-                                    <action selector="addBotWater:" destination="lFH-RN-kYq" eventType="touchUpInside" id="TNx-zh-ztv"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdc-qg-9aO">
                                 <rect key="frame" x="51" y="205" width="90" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -227,14 +226,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wV-Yx-tbV">
-                                <rect key="frame" x="275" y="115" width="96" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Rött kort 50kr"/>
-                                <connections>
-                                    <action selector="addRedCard:" destination="lFH-RN-kYq" eventType="touchUpInside" id="eWH-ZH-MRO"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3G-Dh-Ilv">
                                 <rect key="frame" x="188" y="268" width="25" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -262,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGr-mD-8l7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2148" y="122"/>
+            <point key="canvasLocation" x="2147.826086956522" y="121.875"/>
         </scene>
         <!--Add Bot To Player Table View Controller-->
         <scene sceneID="u6W-Jv-ilj">
@@ -308,6 +299,7 @@
         <!--addBoT-->
         <scene sceneID="tdR-2Z-kzN">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K8H-7y-aZt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController title="addBoT" id="poZ-1M-dao" customClass="NewBotEntryViewController" customModule="BotApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iDu-4w-Hog">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -377,7 +369,6 @@
                         <outlet property="addBot" destination="g9J-fs-Ahk" id="dzk-WO-aj6"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K8H-7y-aZt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3426" y="1225"/>
         </scene>

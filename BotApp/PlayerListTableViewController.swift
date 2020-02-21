@@ -28,7 +28,7 @@ class PlayerListTableViewController: UITableViewController {
         readFromDB()
     }
     
-    
+    //read from the Firebase database
     func readFromDB() {
         guard let currentUser = Auth.auth().currentUser else  { print("oj"); return }
         
@@ -65,10 +65,6 @@ class PlayerListTableViewController: UITableViewController {
         }
     }
     
-    
-    
-    
-    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -92,13 +88,9 @@ class PlayerListTableViewController: UITableViewController {
         return cell
     }
     
-    //    func sortTable() {
-    //
-    //        Firestore.firestore().nameField: name
-    //
-    //        Firestore.firestore().collection("users").document("players")
-    //            .order(by: Firestore.nameField)
-    //    }
+    
+    
+    
     
     //Save player name in a UIAlert action *******
     @IBAction func addPlayer(_ sender: UIBarButtonItem) {
@@ -132,7 +124,7 @@ class PlayerListTableViewController: UITableViewController {
         if editingStyle == .delete {
            
             let player = players.entry(index: indexPath.row)
-            
+
             guard let documentId = player?.id else {return}
             
             guard let currentUser = Auth.auth().currentUser else  { return }
@@ -143,6 +135,8 @@ class PlayerListTableViewController: UITableViewController {
         
         }
     }
+    
+    
     
     
     // MARK: - Navigation
@@ -161,7 +155,7 @@ class PlayerListTableViewController: UITableViewController {
             
             destinationVC.playerEntry = entry
         } else if segue.identifier == newEntrySegueId {
-            guard segue.destination is NewEntryViewController else {return}
+            guard segue.destination is PlayerEntryViewController else {return}
             
             //            destinationVC.players = players
             //            destinationVC.playerVC = self
