@@ -102,6 +102,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="0hY-59-nUr">
                             <connections>
                                 <action selector="logOutPressed:" destination="O9A-Gj-A1r" id="ces-YB-3XD"/>
+                                <segue destination="hY0-3h-9ON" kind="unwind" identifier="logoutPlayer" unwindAction="unwindToLoginWithSegue:" id="WZi-9x-fsg"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
@@ -123,6 +124,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJJ-Hr-4ad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="hY0-3h-9ON" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1269.5652173913045" y="121.875"/>
         </scene>

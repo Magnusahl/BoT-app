@@ -32,7 +32,7 @@ class PlayerListTableViewController: UITableViewController {
     func readFromDB() {
         guard let currentUser = Auth.auth().currentUser else  { print("oj"); return }
         
-        let playersRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("players")
+        let playersRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("players").order(by: "name")
         
         playersRef.addSnapshotListener() {
             (snapshot, error) in
@@ -59,11 +59,13 @@ class PlayerListTableViewController: UITableViewController {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            
+            performSegue(withIdentifier: "logoutPlayer", sender: self)
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }
     }
+    
+    
     
     
     
@@ -138,16 +140,7 @@ class PlayerListTableViewController: UITableViewController {
             let playersDb = Firestore.firestore().collection("users").document(currentUser.uid)
                            
             playersDb.collection("players").document(documentId).delete()
-            
-            //
-            //                if let user = Auth.auth().currentUser {
-            //
-            //                    let ref = Firestore.firestore().collection("players")
-            //                    let playersID = Auth.auth().currentUser?.uid
-            //
-            //                    ref.collectionID(playersID!).removeValue()
-            //               }
-            
+        
         }
     }
     

@@ -26,7 +26,7 @@ class BotTableViewController: UITableViewController {
         guard let currentUser = Auth.auth().currentUser else {
             print("oj bot"); return}
         
-        let botRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("bot")
+        let botRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("bot").order(by: "botName")
         
         botRef.addSnapshotListener() {
             (snapshot, error) in
