@@ -18,8 +18,13 @@ class StartViewController: UIViewController {
     
     var teamName = TeamName(teamName: "", id: "")
     
+    @IBOutlet weak var roundedSignIn: UIButton!
+    @IBOutlet weak var roundedLogIn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        roundedSignIn.layer.cornerRadius = 16
+        roundedLogIn.layer.cornerRadius = 16
 
         auth = Auth.auth()
 
@@ -63,16 +68,12 @@ class StartViewController: UIViewController {
             let passwordField = alertController.textFields![1]
 //            let conformPasswordField = alertController.textFields![2]
             
-//            let teamField = alertController.textFields![3]
+            let teamField = alertController.textFields![3]
             
 //            if let teamField = alertController.textFields?[3].text {
 //                guard let currentUser = Auth.auth().currentUser else  { return }
 //
-            //                    let changeRequest = user.createProfileChangeRequest()
-            //                        changeRequest.displayName = teamField.text
-            //                        changeRequest.commitChanges { (error) in
-            //
-            //                        }
+            
                 
                 
 //                let playersDb = Firestore.firestore().collection("users").document(currentUser.uid)
@@ -86,6 +87,12 @@ class StartViewController: UIViewController {
             Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { result, error in
                 if let user = self.auth.currentUser {
                     self.performSegue(withIdentifier: self.segueID, sender: self)
+                    //Add displayName = Team Name
+                    let changeRequest = user.createProfileChangeRequest()
+                    changeRequest.displayName = teamField.text
+                    changeRequest.commitChanges { (error) in
+                        
+                    }
                 } else {
                     print("Error: \(error)")
                 }

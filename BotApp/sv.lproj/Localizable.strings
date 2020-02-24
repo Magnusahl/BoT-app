@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  BotApp
+
+  Created by Magnus Ahlqvist on 2020-02-24.
+  Copyright © 2020 Magnus Ahlqvist. All rights reserved.
+*/
+
+"Players" = "Spelare";
+"Penalites" = "Böter";

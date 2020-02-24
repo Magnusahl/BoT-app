@@ -18,7 +18,7 @@ class BotTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Bot List"
+        title = NSLocalizedString("Penalties", comment: "")
         readFromBotDB()
     }
     

@@ -10,6 +10,9 @@
 		5364D73F7CDC288BD7B9073A /* Pods_BotAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95464D19D03D8DE9C1562C6D /* Pods_BotAppTests.framework */; };
 		69C55FD349751D5C07D9995A /* Pods_BotApp_BotAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274BD3AAD4EC362196AE4CFC /* Pods_BotApp_BotAppUITests.framework */; };
 		DCE9F3CF68E11FD36F762062 /* Pods_BotApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C8AD3BC9AF0F4738D21463 /* Pods_BotApp.framework */; };
+		F70C0E3A240404A400491052 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F70C0E39240404A300491052 /* Assets.xcassets */; };
+		F70C0E3F240404F400491052 /* Pay Up logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C0E41240404F400491052 /* Pay Up logo.png */; };
+		F70C0E4A24040D2900491052 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F70C0E4C24040D2900491052 /* Localizable.strings */; };
 		F74EB8BB23FD2D39008E683B /* AddBotToPlayerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EB8BA23FD2D39008E683B /* AddBotToPlayerTableViewController.swift */; };
 		F74EB8BD23FEAFF7008E683B /* TeamNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EB8BC23FEAFF7008E683B /* TeamNames.swift */; };
 		F760BAE023F44C7A006BC5DC /* botAmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F760BADF23F44C7A006BC5DC /* botAmountTableViewCell.swift */; };
@@ -24,7 +27,6 @@
 		F7B6F86723C8705100FECA14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6F86623C8705100FECA14 /* AppDelegate.swift */; };
 		F7B6F86923C8705100FECA14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6F86823C8705100FECA14 /* SceneDelegate.swift */; };
 		F7B6F86E23C8705100FECA14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B6F86C23C8705100FECA14 /* Main.storyboard */; };
-		F7B6F87023C8705300FECA14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7B6F86F23C8705300FECA14 /* Assets.xcassets */; };
 		F7B6F87323C8705300FECA14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B6F87123C8705300FECA14 /* LaunchScreen.storyboard */; };
 		F7B6F87E23C8705300FECA14 /* BotAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6F87D23C8705300FECA14 /* BotAppTests.swift */; };
 		F7B6F88923C8705300FECA14 /* BotAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6F88823C8705300FECA14 /* BotAppUITests.swift */; };
@@ -61,6 +63,13 @@
 		9A1E0DF50084888BB53F7B95 /* Pods-BotApp-BotAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotApp-BotAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-BotApp-BotAppUITests/Pods-BotApp-BotAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C2C8AD3BC9AF0F4738D21463 /* Pods_BotApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BotApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70226BE46A4E75EBE6DE520 /* Pods-BotApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotApp.release.xcconfig"; path = "Target Support Files/Pods-BotApp/Pods-BotApp.release.xcconfig"; sourceTree = "<group>"; };
+		F70C0E2C2403FEE400491052 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
+		F70C0E2D2403FEE500491052 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F70C0E39240404A300491052 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F70C0E40240404F400491052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/Pay Up logo.png"; sourceTree = "<group>"; };
+		F70C0E47240405A100491052 /* sv */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sv; path = "sv.lproj/Projsa logo.png"; sourceTree = "<group>"; };
+		F70C0E4B24040D2900491052 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F70C0E4D24040D4D00491052 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F74EB8BA23FD2D39008E683B /* AddBotToPlayerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBotToPlayerTableViewController.swift; sourceTree = "<group>"; };
 		F74EB8BC23FEAFF7008E683B /* TeamNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamNames.swift; sourceTree = "<group>"; };
 		F760BADF23F44C7A006BC5DC /* botAmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = botAmountTableViewCell.swift; sourceTree = "<group>"; };
@@ -76,7 +85,6 @@
 		F7B6F86623C8705100FECA14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7B6F86823C8705100FECA14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F7B6F86D23C8705100FECA14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F7B6F86F23C8705300FECA14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7B6F87223C8705300FECA14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7B6F87423C8705300FECA14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7B6F87923C8705300FECA14 /* BotAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BotAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +150,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F70C0E31240403C000491052 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				F70C0E41240404F400491052 /* Pay Up logo.png */,
+			);
+			path = Pictures;
+			sourceTree = "<group>";
+		};
 		F794D88823F15DCA00B52DB9 /* Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +167,7 @@
 				F7C8F4A223E1AC15009E7905 /* PlayerEntry.swift */,
 				F794D83423E99ECE00B52DB9 /* Penalty.swift */,
 				F777B5EE23F4252600D210B4 /* TeamName.swift */,
+				F70C0E4C24040D2900491052 /* Localizable.strings */,
 			);
 			name = Module;
 			sourceTree = "<group>";
@@ -161,6 +178,7 @@
 				F794D88623F1599B00B52DB9 /* BotUITableView.swift */,
 				F794D88423EEEFED00B52DB9 /* LabelAmountTableViewCell.swift */,
 				F760BADF23F44C7A006BC5DC /* botAmountTableViewCell.swift */,
+				F7B6F86C23C8705100FECA14 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,15 +220,15 @@
 		F7B6F86523C8705100FECA14 /* BotApp */ = {
 			isa = PBXGroup;
 			children = (
+				F70C0E31240403C000491052 /* Pictures */,
 				F794D88B23F15E7D00B52DB9 /* Controller */,
 				F794D88A23F15E7000B52DB9 /* View */,
 				F794D88823F15DCA00B52DB9 /* Module */,
 				F7B6F86623C8705100FECA14 /* AppDelegate.swift */,
 				F7B6F86823C8705100FECA14 /* SceneDelegate.swift */,
-				F7B6F86C23C8705100FECA14 /* Main.storyboard */,
-				F7B6F86F23C8705300FECA14 /* Assets.xcassets */,
 				F7B6F87123C8705300FECA14 /* LaunchScreen.storyboard */,
 				F794D83A23EAE1F100B52DB9 /* GoogleService-Info.plist */,
+				F70C0E39240404A300491052 /* Assets.xcassets */,
 				F7B6F87423C8705300FECA14 /* Info.plist */,
 			);
 			path = BotApp;
@@ -325,6 +343,7 @@
 			knownRegions = (
 				en,
 				Base,
+				sv,
 			);
 			mainGroup = F7B6F85A23C8705100FECA14;
 			productRefGroup = F7B6F86423C8705100FECA14 /* Products */;
@@ -343,9 +362,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F70C0E3F240404F400491052 /* Pay Up logo.png in Resources */,
+				F70C0E4A24040D2900491052 /* Localizable.strings in Resources */,
 				F7B6F87323C8705300FECA14 /* LaunchScreen.storyboard in Resources */,
 				F794D83B23EAE1F100B52DB9 /* GoogleService-Info.plist in Resources */,
-				F7B6F87023C8705300FECA14 /* Assets.xcassets in Resources */,
+				F70C0E3A240404A400491052 /* Assets.xcassets in Resources */,
 				F7B6F86E23C8705100FECA14 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,10 +546,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		F70C0E41240404F400491052 /* Pay Up logo.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F70C0E40240404F400491052 /* Base */,
+				F70C0E47240405A100491052 /* sv */,
+			);
+			name = "Pay Up logo.png";
+			sourceTree = "<group>";
+		};
+		F70C0E4C24040D2900491052 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F70C0E4B24040D2900491052 /* en */,
+				F70C0E4D24040D4D00491052 /* sv */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		F7B6F86C23C8705100FECA14 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F7B6F86D23C8705100FECA14 /* Base */,
+				F70C0E2C2403FEE400491052 /* sv */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -537,6 +577,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F7B6F87223C8705300FECA14 /* Base */,
+				F70C0E2D2403FEE500491052 /* sv */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -548,6 +589,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -608,6 +650,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

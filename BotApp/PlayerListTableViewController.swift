@@ -22,8 +22,11 @@ class PlayerListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Player list"
+        
+        title = NSLocalizedString("Players", comment: "")
         print("!!!!!!!!!: \(Auth.auth().currentUser)")
+        
+        
         
         readFromDB()
     }
@@ -87,10 +90,6 @@ class PlayerListTableViewController: UITableViewController {
         }
         return cell
     }
-    
-    
-    
-    
     
     //Save player name in a UIAlert action *******
     @IBAction func addPlayer(_ sender: UIBarButtonItem) {

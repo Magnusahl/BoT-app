@@ -1,0 +1,45 @@
+
+/* Class = "UIBarButtonItem"; title = "Logout"; ObjectID = "0hY-59-nUr"; */
+"0hY-59-nUr.title" = "Logout";
+
+/* Class = "UILabel"; text = "Amount"; ObjectID = "CAM-nJ-R9h"; */
+"CAM-nJ-R9h.text" = "Amount";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "DWt-45-si1"; */
+"DWt-45-si1.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "LCs-3k-usn"; */
+"LCs-3k-usn.normalTitle" = "Register";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "Ozn-a2-9qW"; */
+"Ozn-a2-9qW.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "Add penalty"; ObjectID = "U3G-Dh-Ilv"; */
+"U3G-Dh-Ilv.normalTitle" = "Add penalty";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "Xdc-qg-9aO"; */
+"Xdc-qg-9aO.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "a3h-wC-2sP"; */
+"a3h-wC-2sP.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "Hantera din lag kassa"; ObjectID = "eAt-45-FQ7"; */
+"eAt-45-FQ7.text" = "Hantera din lag kassa";
+
+/* Class = "UILabel"; text = "Team Name"; ObjectID = "fEQ-Xe-cmt"; */
+"fEQ-Xe-cmt.text" = "Team Name";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "ibh-eD-Jp9"; */
+"ibh-eD-Jp9.text" = "0";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "sDV-Y5-J8R"; */
+"sDV-Y5-J8R.text" = "Name";
+
+/* Class = "UIBarButtonItem"; title = "Penalties"; ObjectID = "ure-0V-32c"; */
+"ure-0V-32c.title" = "Penalties";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "wqd-Qf-dab"; */
+"wqd-Qf-dab.text" = "0";
+
+/* Class = "UILabel"; text = "Count"; ObjectID = "xNo-p7-v57"; */
+"xNo-p7-v57.text" = "Count";
