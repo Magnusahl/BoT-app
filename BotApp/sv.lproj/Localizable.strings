@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   BotApp
 
@@ -8,3 +8,19 @@
 
 "Players" = "Spelare";
 "Penalites" = "Böter";
+"Sign Up" = "Registrera";
+"Cancel" = "Avbryt";
+"Email" = "Epost";
+"Password" = "Lösenord";
+"Team Name" = "Lag Namn";
+"Login" = "Logga in";
+
+"Add Penalty" = "Lägg till böter";
+"Type a penalty name" = "Skriv ett bötes namn";
+"Type a penalty name and a amount" = "Skriv ett bötes namn och belopp";
+"Enter the amount:" = "Skriv in ett belopp";
+"Save" = "Spara";
+
+"Add player" = "Lägg till spelare";
+"Type in a player name" = "Skriv in ett spelarnamn";
+

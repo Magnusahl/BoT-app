@@ -67,9 +67,9 @@
 		F70C0E2D2403FEE500491052 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F70C0E39240404A300491052 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F70C0E40240404F400491052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/Pay Up logo.png"; sourceTree = "<group>"; };
-		F70C0E47240405A100491052 /* sv */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sv; path = "sv.lproj/Projsa logo.png"; sourceTree = "<group>"; };
 		F70C0E4B24040D2900491052 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F70C0E4D24040D4D00491052 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F70C0E4E240525B500491052 /* sv */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sv; path = "sv.lproj/Pay Up logo.png"; sourceTree = "<group>"; };
 		F74EB8BA23FD2D39008E683B /* AddBotToPlayerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBotToPlayerTableViewController.swift; sourceTree = "<group>"; };
 		F74EB8BC23FEAFF7008E683B /* TeamNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamNames.swift; sourceTree = "<group>"; };
 		F760BADF23F44C7A006BC5DC /* botAmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = botAmountTableViewCell.swift; sourceTree = "<group>"; };
@@ -175,6 +175,7 @@
 		F794D88A23F15E7000B52DB9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F70C0E31240403C000491052 /* Pictures */,
 				F794D88623F1599B00B52DB9 /* BotUITableView.swift */,
 				F794D88423EEEFED00B52DB9 /* LabelAmountTableViewCell.swift */,
 				F760BADF23F44C7A006BC5DC /* botAmountTableViewCell.swift */,
@@ -220,7 +221,6 @@
 		F7B6F86523C8705100FECA14 /* BotApp */ = {
 			isa = PBXGroup;
 			children = (
-				F70C0E31240403C000491052 /* Pictures */,
 				F794D88B23F15E7D00B52DB9 /* Controller */,
 				F794D88A23F15E7000B52DB9 /* View */,
 				F794D88823F15DCA00B52DB9 /* Module */,
@@ -550,7 +550,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F70C0E40240404F400491052 /* Base */,
-				F70C0E47240405A100491052 /* sv */,
+				F70C0E4E240525B500491052 /* sv */,
 			);
 			name = "Pay Up logo.png";
 			sourceTree = "<group>";

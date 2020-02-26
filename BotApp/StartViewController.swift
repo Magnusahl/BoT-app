@@ -29,7 +29,6 @@ class StartViewController: UIViewController {
         auth = Auth.auth()
 
         if let user = self.auth.currentUser {
-            print(user.email)
             do {
                 try auth.signOut()
             } catch {
@@ -41,15 +40,15 @@ class StartViewController: UIViewController {
     //Sign up the user
     @IBAction func signUp(_ sender: UIButton) {
         
-        let alertController = UIAlertController(title: nil, message: "Signup", preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("Sign Up", comment: ""), message: "", preferredStyle: .alert)
         
         alertController.addTextField { (textField) in
-            textField.placeholder = "Email"
+            textField.placeholder = NSLocalizedString("Email", comment: "")
             textField.keyboardType = .emailAddress
         }
         
         alertController.addTextField { (textField) in
-            textField.placeholder = "Password"
+            textField.placeholder = NSLocalizedString("Password", comment: "")
             textField.isSecureTextEntry = true
         }
         
@@ -59,27 +58,25 @@ class StartViewController: UIViewController {
 //        }
         
         alertController.addTextField { (textField) in
-            textField.placeholder = "Team name"
+            textField.placeholder = NSLocalizedString("Team Name", comment: "")
             textField.keyboardType = .default
         }
         
-        let signupAction = UIAlertAction(title: "Sign Up", style: .default) { (_) in
+        let signupAction = UIAlertAction(title: NSLocalizedString("Sign Up", comment: ""), style: .default) { (_) in
             let emailField = alertController.textFields![0]
             let passwordField = alertController.textFields![1]
 //            let conformPasswordField = alertController.textFields![2]
             
-            let teamField = alertController.textFields![3]
-            
-//            if let teamField = alertController.textFields?[3].text {
+            let teamField = alertController.textFields![2]
+
+//            if let teamField = alertController.textFields?[2].text {
+//
+//                let teamNameEntry = TeamName(teamName: teamField, id: "")
+//
 //                guard let currentUser = Auth.auth().currentUser else  { return }
 //
-            
-                
-                
 //                let playersDb = Firestore.firestore().collection("users").document(currentUser.uid)
-//                let teamNameEntry = TeamNameEntry(teamName: "", id: "")
-//                teamNameEntry.teamName = teamField
-                
+//
 //                print(self.teamName)
 //            }
             
@@ -87,6 +84,7 @@ class StartViewController: UIViewController {
             Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { result, error in
                 if let user = self.auth.currentUser {
                     self.performSegue(withIdentifier: self.segueID, sender: self)
+                    
                     //Add displayName = Team Name
                     let changeRequest = user.createProfileChangeRequest()
                     changeRequest.displayName = teamField.text
@@ -98,7 +96,7 @@ class StartViewController: UIViewController {
                 }
             }
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
             alertController.addAction(signupAction)
             alertController.addAction(cancelAction)
 
@@ -110,23 +108,21 @@ class StartViewController: UIViewController {
     //Log in the user
     @IBAction func logIn(_ sender: UIButton) {
         
-        let alertController = UIAlertController(title: nil, message: "Log In", preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("Login", comment: ""), message: "", preferredStyle: .alert)
         
         alertController.addTextField { (textField) in
-            textField.placeholder = "Email"
+            textField.placeholder = NSLocalizedString("Email", comment: "")
             textField.keyboardType = .emailAddress
         }
 
         alertController.addTextField { (textField) in
-            textField.placeholder = "Password"
+            textField.placeholder = NSLocalizedString("Password", comment: "")
             textField.isSecureTextEntry = true
         }
         
-        let loginAction = UIAlertAction(title: "Log in", style: .default) { (_) in
+        let loginAction = UIAlertAction(title: NSLocalizedString("Login", comment: ""), style: .default) { (_) in
             let emailField = alertController.textFields![0]
             let passwordField = alertController.textFields![1]
-
-            //Perform validation or whatever you do want with the text of textfield
 
             //Login With Firebase
             Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
@@ -137,7 +133,7 @@ class StartViewController: UIViewController {
                 }
             }
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
                 alertController.addAction(loginAction)
                 alertController.addAction(cancelAction)
 
@@ -147,13 +143,10 @@ class StartViewController: UIViewController {
     }
     
     
-    
+    //Sends the user back to start screen
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
     
     }
-    
-        
-        
     
     /*
     // MARK: - Navigation

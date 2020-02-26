@@ -11,14 +11,13 @@ import Firebase
 import FirebaseFirestoreSwift
 
 class BotTableViewController: UITableViewController {
-
+    
     let cellIdentity = "BotEntryCell"
     let bot = Penalties()
- //   var botentry = BotEntry(botName: "", botAmount: 0, id: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("Penalties", comment: "")
+
         readFromBotDB()
     }
     
@@ -73,12 +72,12 @@ class BotTableViewController: UITableViewController {
     
     @IBAction func addBot(_ sender: UIBarButtonItem) {
         
-        let alert = UIAlertController(title: "Add Bot", message: "Type in a bot name and amount", preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("Add Penalty", comment: ""), message: "", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        alert.addTextField(configurationHandler: { textField in textField.placeholder = "Type a bot name:" })
-        alert.addTextField(configurationHandler: { textField in textField.placeholder = "Enter the amount:" })
-        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default, handler: nil))
+        alert.addTextField(configurationHandler: { textField in textField.placeholder = NSLocalizedString("Type a penalty name", comment: "") })
+        alert.addTextField(configurationHandler: { textField in textField.placeholder = NSLocalizedString("Enter the amount:", comment: "") })
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Save", comment: ""), style: .default, handler: { action in
             
             let botentry = Penalty(botName: "", botAmount: 0, id: "")
             

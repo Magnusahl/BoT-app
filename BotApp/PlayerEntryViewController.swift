@@ -16,13 +16,15 @@ class PlayerEntryViewController: UIViewController {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var botCountLabel: UILabel!
     
+    @IBOutlet weak var roundedAddPenalty: UIButton!
     var playerEntry: Player?
-//    var amount = 0
-//    var botCount = 0
-//    var id = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Style add penalty button
+        roundedAddPenalty.layer.cornerRadius = 28
         
         //Show the total amount of bot placed on the player
         if let amount = playerEntry?.amount {
@@ -73,16 +75,6 @@ class PlayerEntryViewController: UIViewController {
         
         
      }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     

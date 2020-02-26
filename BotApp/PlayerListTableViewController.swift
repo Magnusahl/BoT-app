@@ -23,10 +23,7 @@ class PlayerListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = NSLocalizedString("Players", comment: "")
-        print("!!!!!!!!!: \(Auth.auth().currentUser)")
-        
-        
+        stateSwitch.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
         
         readFromDB()
     }
@@ -35,7 +32,7 @@ class PlayerListTableViewController: UITableViewController {
     func readFromDB() {
         guard let currentUser = Auth.auth().currentUser else  { print("oj"); return }
         
-        let playersRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("players").order(by: "name")
+        let playersRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("players").order(by: "name", descending: false)
         
         playersRef.addSnapshotListener() {
             (snapshot, error) in
@@ -68,6 +65,34 @@ class PlayerListTableViewController: UITableViewController {
         }
     }
     
+    
+    @IBOutlet weak var stateSwitch: UISwitch!
+    
+    
+    @objc func stateChanged(switchState: UISwitch) {
+        guard let currentUser = Auth.auth().currentUser else  { print("oj"); return }
+        if switchState.isOn {
+            teamName.text = "Sort by Name"
+            readFromDB()
+            
+        } else {
+            teamName.text = "Sort by Amount"
+            let playersRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("players").order(by: "amount", descending: true)
+            playersRef.addSnapshotListener() {
+                (snapshot, error) in
+                guard let documents = snapshot?.documents else {return}
+                
+                self.players.removeAll()
+                for document in documents {
+                    
+                    let player = Player(snapshot: document)
+                    self.players.add(entry: player)
+                }
+                self.refresh()
+            }
+        }
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -96,11 +121,11 @@ class PlayerListTableViewController: UITableViewController {
         
         let entry = Player(name: "", amount: 0, id: "", botCount: 0)
         
-        let alert = UIAlertController(title: "Add player", message: "Type in a player name", preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("Add player", comment: ""), message: "", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        alert.addTextField(configurationHandler: { textField in textField.placeholder = "Type a player name:" })
-        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default, handler: nil))
+        alert.addTextField(configurationHandler: { textField in textField.placeholder = NSLocalizedString("Type in a player name", comment: "") })
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Save", comment: ""), style: .default, handler: { action in
             
             if let text = alert.textFields?.first?.text {
                 guard let currentUser = Auth.auth().currentUser else  { return }

@@ -8,3 +8,19 @@
 
 "Players" = "Players";
 "Penalites" = "Penalites";
+"Sign Up" = "Sign Up";
+"Cancel" = "Cancel";
+"Email" = "Email";
+"Password" = "Password";
+"Team Name" = "Team Name";
+"Login" = "Login";
+
+"Add Penalty" = "Add Penalty";
+"Type a penalty name" = "Type a penalty name";
+"Type a penalty name and a amount" = "Type a penalty name and a amount";
+"Enter the amount:" = "Enter the amount:";
+"Save" = "Save";
+
+"Add player" = "Add player";
+"Type in a player name" = "Type in a player name";
+
