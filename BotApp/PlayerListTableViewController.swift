@@ -25,6 +25,8 @@ class PlayerListTableViewController: UITableViewController {
         
         stateSwitch.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
         
+        teamName.text = "Gruppnamn"
+        
         readFromDB()
     }
     
@@ -32,7 +34,7 @@ class PlayerListTableViewController: UITableViewController {
     func readFromDB() {
         guard let currentUser = Auth.auth().currentUser else  { print("oj"); return }
         
-        let playersRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("players").order(by: "name", descending: false)
+        let playersRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("players").order(by: "name")
         
         playersRef.addSnapshotListener() {
             (snapshot, error) in
@@ -72,11 +74,23 @@ class PlayerListTableViewController: UITableViewController {
     @objc func stateChanged(switchState: UISwitch) {
         guard let currentUser = Auth.auth().currentUser else  { print("oj"); return }
         if switchState.isOn {
-            teamName.text = "Sort by Name"
-            readFromDB()
+//            teamName.text = "Sort by Name"
+            let playersRef1 = Firestore.firestore().collection("users").document(currentUser.uid).collection("players").order(by: "name", descending: false)
+            playersRef1.addSnapshotListener() {
+                (snapshot, error) in
+                guard let documents = snapshot?.documents else {return}
+                
+                self.players.removeAll()
+                for document in documents {
+                    
+                    let player = Player(snapshot: document)
+                    self.players.add(entry: player)
+                }
+                self.refresh()
+            }
             
         } else {
-            teamName.text = "Sort by Amount"
+//            teamName.text = "Sort by Amount"
             let playersRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("players").order(by: "amount", descending: true)
             playersRef.addSnapshotListener() {
                 (snapshot, error) in
@@ -92,6 +106,7 @@ class PlayerListTableViewController: UITableViewController {
             }
         }
     }
+    
     
     // MARK: - Table view data source
     

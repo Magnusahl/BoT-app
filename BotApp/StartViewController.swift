@@ -18,12 +18,12 @@ class StartViewController: UIViewController {
     
     var teamName = TeamName(teamName: "", id: "")
     
-    @IBOutlet weak var roundedSignIn: UIButton!
+    @IBOutlet weak var roundedSignUp: UIButton!
     @IBOutlet weak var roundedLogIn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        roundedSignIn.layer.cornerRadius = 16
+        roundedSignUp.layer.cornerRadius = 16
         roundedLogIn.layer.cornerRadius = 16
 
         auth = Auth.auth()

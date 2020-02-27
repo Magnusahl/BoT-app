@@ -24,7 +24,7 @@ class PlayerEntryViewController: UIViewController {
         super.viewDidLoad()
         
         //Style add penalty button
-        roundedAddPenalty.layer.cornerRadius = 28
+        roundedAddPenalty.layer.cornerRadius = 16
         
         //Show the total amount of bot placed on the player
         if let amount = playerEntry?.amount {
