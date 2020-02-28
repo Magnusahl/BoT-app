@@ -8,16 +8,15 @@
 
 import Foundation
 
+//Store all created penalties
 class Penalties {
     
     private var entries = [Penalty]()
     
-    //computed property
     var count: Int {
         return entries.count
     }
     
-    //Lägga till player
     func add(entry: Penalty) {
         entries.append(entry)
     }
@@ -26,7 +25,6 @@ class Penalties {
         if index >= 0 && index < entries.count {
             return entries[index]
         }
-        
         return nil
     }
     

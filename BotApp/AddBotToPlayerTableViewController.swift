@@ -11,7 +11,7 @@ import Firebase
 import FirebaseFirestoreSwift
 
 class AddBotToPlayerTableViewController: UITableViewController {
-
+    
     let cellIdentity = "BotCell"
     let penalties = Penalties()
     
@@ -19,15 +19,16 @@ class AddBotToPlayerTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         readFromBotDB()
     }
     
+    //Read from the firebase
     func readFromBotDB() {
         guard let currentUser = Auth.auth().currentUser else {
             print("oj bot"); return}
         
-        let botRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("bot")
+        let botRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("bot").order(by: "botName", descending: false)
         
         botRef.addSnapshotListener() {
             (snapshot, error) in
@@ -48,23 +49,22 @@ class AddBotToPlayerTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return penalties.count
     }
-
+    
     //Show the bot name and bot amount in the tableview
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath as IndexPath) as! botAmountTableViewCell
-
+        
         if let entry = penalties.entry(index: indexPath.row) {
             cell.textLabel?.text = entry.botName
             cell.botAmount?.text = String(entry.botAmount)
@@ -72,19 +72,14 @@ class AddBotToPlayerTableViewController: UITableViewController {
         return cell
     }
     
-   
-    
     // MARK: - Navigation
-
-    //save the bot the player choose and dismiss the view back to playerentryVC
+    
+    //save the penalty, player choose and dismiss the view back to playerentryVC
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let b = penalties.entry(index: indexPath.row) {
-            parentVC?.applyBot(botEntry: b)
+        if let penalty = penalties.entry(index: indexPath.row) {
+            parentVC?.applyBot(botEntry: penalty)
         }
-        
         dismiss(animated: true, completion: nil)
     }
-    
-
 }

@@ -19,7 +19,6 @@ class Penalty : Codable {
         self.botName = botName
         self.botAmount = botAmount
         self.id = ""
-        
     }
     
     init(snapshot: QueryDocumentSnapshot) {

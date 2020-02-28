@@ -10,32 +10,24 @@ import UIKit
 import Firebase
 import FirebaseFirestoreSwift
 
+//Show the users penalty amount in the tableview
 class botAmountTableViewCell: UITableViewCell {
     
-
     let cellIdentity = "BotEntryCell"
-    
     var bot = Penalties()
     var botEntry: Penalty?
-    
     
     @IBOutlet weak var botAmount: UILabel!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath)
-                as! botAmountTableViewCell
-
-    //        if let entry = players.entry(index: indexPath.row) {
-                cell.botAmount?.text = String(botEntry!.botAmount)
-    //            cell.labelAmount?.text = amountLabel.text
-            
-            return cell
-        }
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath)
+            as! botAmountTableViewCell
+        
+        cell.botAmount?.text = String(botEntry!.botAmount)
+        return cell
+    }
 }

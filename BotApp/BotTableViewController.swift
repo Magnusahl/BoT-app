@@ -17,7 +17,7 @@ class BotTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         readFromBotDB()
     }
     
@@ -25,7 +25,7 @@ class BotTableViewController: UITableViewController {
         guard let currentUser = Auth.auth().currentUser else {
             print("oj bot"); return}
         
-        let botRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("bot").order(by: "botName")
+        let botRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("bot").order(by: "botName", descending: false)
         
         botRef.addSnapshotListener() {
             (snapshot, error) in
@@ -40,27 +40,27 @@ class BotTableViewController: UITableViewController {
             self.botRefresh()
         }
     }
+    
     //Refresh tableview with new entry
     func botRefresh() {
         tableView.reloadData()
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return bot.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath as IndexPath) as! botAmountTableViewCell
-
+        
         if let entry = bot.entry(index: indexPath.row) {
             cell.textLabel?.text = entry.botName
             cell.botAmount?.text = String(entry.botAmount)
@@ -69,7 +69,7 @@ class BotTableViewController: UITableViewController {
         return cell
     }
     
-    
+    //Add bot in tableview
     @IBAction func addBot(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: NSLocalizedString("Add Penalty", comment: ""), message: "", preferredStyle: .alert)
@@ -82,10 +82,9 @@ class BotTableViewController: UITableViewController {
             let botentry = Penalty(botName: "", botAmount: 0, id: "")
             
             // set name
-            if let text = alert.textFields?.first?.text {
+            if let text = alert.textFields?.first?.text?.lowercased().capitalized {
                 botentry.botName = text
             }
-            
             
             // set botamount
             if let amount = alert.textFields?[1].text {
@@ -103,34 +102,21 @@ class BotTableViewController: UITableViewController {
         }))
         self.present(alert, animated: true)
     }
-
+    
     //     Delete bot*****
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-           
+            
             let penalties = bot.entry(index: indexPath.row)
             
             guard let documentId = penalties?.id else {return}
             
             guard let currentUser = Auth.auth().currentUser else  { return }
-                           
+            
             let playersDb = Firestore.firestore().collection("users").document(currentUser.uid)
-                           
+            
             playersDb.collection("bot").document(documentId).delete()
-            
-            
-            
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

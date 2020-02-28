@@ -8,16 +8,15 @@
 
 import Foundation
 
+//Store all created players
 class Players {
     
     private var entries = [Player]()
     
-    //computed property
     var count: Int {
         return entries.count
     }
     
-    //Lägga till player
     func add(entry: Player) {
         entries.append(entry)
     }
@@ -29,7 +28,13 @@ class Players {
         return nil
     }
     
+    //function to remove cell entries
     func removeAll() {
         entries.removeAll()
-    }    
+    }
+    func getSortedEntry(index:Int) -> Player? {
+        let sortedArray = self.entries.sorted()
+        
+        return sortedArray[index]
+    }
 }

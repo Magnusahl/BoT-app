@@ -14,6 +14,8 @@ class PlayerListTableViewController: UITableViewController {
     
     @IBOutlet weak var teamName: UILabel!
     
+    let auth = Auth.auth()
+    
     let cellIdentity = "PlayerEntryCell"
     let playerEntrySegueId = "showPlayerEntry"
     let players = Players()
@@ -24,9 +26,6 @@ class PlayerListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         stateSwitch.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
-        
-        teamName.text = "Gruppnamn"
-        
         readFromDB()
     }
     
@@ -34,7 +33,7 @@ class PlayerListTableViewController: UITableViewController {
     func readFromDB() {
         guard let currentUser = Auth.auth().currentUser else  { print("oj"); return }
         
-        let playersRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("players").order(by: "name")
+        let playersRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("players").order(by: "name", descending: false)
         
         playersRef.addSnapshotListener() {
             (snapshot, error) in
@@ -50,9 +49,11 @@ class PlayerListTableViewController: UITableViewController {
         }
     }
     
-    //Refresh tableview with new entry
+    //Refresh tableview with new entry and Show displayName
     func refresh() {
         tableView.reloadData()
+        guard let displayName = auth.currentUser?.displayName else {return}
+        teamName.text = displayName
     }
     
     //    Logout the user
@@ -67,14 +68,13 @@ class PlayerListTableViewController: UITableViewController {
         }
     }
     
-    
+    //Switch from showing name to amount in the tableview
     @IBOutlet weak var stateSwitch: UISwitch!
-    
     
     @objc func stateChanged(switchState: UISwitch) {
         guard let currentUser = Auth.auth().currentUser else  { print("oj"); return }
         if switchState.isOn {
-//            teamName.text = "Sort by Name"
+            //            teamName.text = "Sort by Name"
             let playersRef1 = Firestore.firestore().collection("users").document(currentUser.uid).collection("players").order(by: "name", descending: false)
             playersRef1.addSnapshotListener() {
                 (snapshot, error) in
@@ -90,7 +90,7 @@ class PlayerListTableViewController: UITableViewController {
             }
             
         } else {
-//            teamName.text = "Sort by Amount"
+            //            teamName.text = "Sort by Amount"
             let playersRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("players").order(by: "amount", descending: true)
             playersRef.addSnapshotListener() {
                 (snapshot, error) in
@@ -120,13 +120,19 @@ class PlayerListTableViewController: UITableViewController {
         return players.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath as IndexPath) as! LabelAmountTableViewCell
         
-        if let entry = players.entry(index: indexPath.row) {
-            cell.textLabel?.text = entry.name
-            cell.amountLabel?.text = String(entry.amount)
+        if stateSwitch.isOn {
+            if let entry = players.entry(index: indexPath.row) {
+                cell.textLabel?.text = entry.name
+                cell.amountLabel?.text = String(entry.amount)
+            }
+        } else {
+            if let sortedEntry = players.getSortedEntry(index: indexPath.row) {
+                cell.textLabel?.text = sortedEntry.name
+                cell.amountLabel?.text = String(sortedEntry.amount)
+            }
         }
         return cell
     }
@@ -142,7 +148,7 @@ class PlayerListTableViewController: UITableViewController {
         alert.addTextField(configurationHandler: { textField in textField.placeholder = NSLocalizedString("Type in a player name", comment: "") })
         alert.addAction(UIAlertAction(title: NSLocalizedString("Save", comment: ""), style: .default, handler: { action in
             
-            if let text = alert.textFields?.first?.text {
+            if let text = alert.textFields?.first?.text?.lowercased().capitalized {
                 guard let currentUser = Auth.auth().currentUser else  { return }
                 
                 let playersDb = Firestore.firestore().collection("users").document(currentUser.uid)
@@ -161,22 +167,19 @@ class PlayerListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-           
+            
             let player = players.entry(index: indexPath.row)
-
+            
             guard let documentId = player?.id else {return}
             
             guard let currentUser = Auth.auth().currentUser else  { return }
-                           
+            
             let playersDb = Firestore.firestore().collection("users").document(currentUser.uid)
-                           
+            
             playersDb.collection("players").document(documentId).delete()
-        
+            
         }
     }
-    
-    
-    
     
     // MARK: - Navigation
     
@@ -195,9 +198,6 @@ class PlayerListTableViewController: UITableViewController {
             destinationVC.playerEntry = entry
         } else if segue.identifier == newEntrySegueId {
             guard segue.destination is PlayerEntryViewController else {return}
-            
-            //            destinationVC.players = players
-            //            destinationVC.playerVC = self
         }
     }
 }

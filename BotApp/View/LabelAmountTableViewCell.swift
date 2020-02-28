@@ -10,43 +10,24 @@ import UIKit
 import Firebase
 import FirebaseFirestoreSwift
 
-
+//Show the users amount in the tableview
 class LabelAmountTableViewCell: UITableViewCell {
-
+    
     let cellIdentity = "PlayerAmountCell"
-
     var players = Players()
     var playerEntry: Player?
     
-    
     @IBOutlet weak var amountLabel: UILabel!
     
-    
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentity, for: indexPath)
             as! LabelAmountTableViewCell
-
-//        if let entry = players.entry(index: indexPath.row) {
-            cell.amountLabel?.text = String(playerEntry!.amount)
-//            cell.labelAmount?.text = amountLabel.text
-        print("amount: \(playerEntry!.amount)")
+        
+        cell.amountLabel?.text = String(playerEntry!.amount)
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LabelAmountTableViewCell
-//
-//        let amountLabel = amountlabel[indexPath.row]
-//        cell.labelAmount?.text = amountLabel.text
-//
-//        return cell
-//
-//    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-
 }
